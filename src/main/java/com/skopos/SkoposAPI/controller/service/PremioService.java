@@ -1,6 +1,10 @@
 package com.skopos.SkoposAPI.controller.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.skopos.SkoposAPI.model.EmpresaModel;
@@ -34,5 +38,10 @@ public class PremioService {
 			premio.setPessoas(pessoa);
 			premioRepository.save(premio);
 		}
+	}
+	
+	public Page<PremioModel> listaTodosOsPremios(Pageable page) {
+		Page<PremioModel> listaPremios = premioRepository.findAll(page);
+		return listaPremios;
 	}
 }
