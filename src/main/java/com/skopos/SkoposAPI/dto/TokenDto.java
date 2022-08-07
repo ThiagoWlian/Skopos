@@ -8,10 +8,21 @@ public class TokenDto {
 	private String token;
 	@NotBlank
 	private String tipo;
+	@NotBlank
+	private String tipoUsuario;
 
-	public TokenDto(String token, String tipo) {
+	public String getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(String tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
+
+	public TokenDto(String token, String tipo, String permissao) {
 		this.token = token;
 		this.tipo = tipo;
+		this.tipoUsuario = permissao;
 	}
 
 	public String getToken() {
