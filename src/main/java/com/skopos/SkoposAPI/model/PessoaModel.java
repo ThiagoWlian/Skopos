@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,6 +26,8 @@ public class PessoaModel {
 	private Date nascimento;
 	@OneToOne
 	private EnderecoModel endereco;
+	@Column(name = "pontos_respostas")
+	private long pontos;
 	@OneToOne
 	private UsuarioModel usuario;
 	@ManyToOne
@@ -47,6 +50,18 @@ public class PessoaModel {
 		this.nascimento = nascimento;
 	}
 	
+	public void aumentarNumeroDePontos(int numeroPontos) {
+		this.pontos += numeroPontos;
+	}
+	
+	public long getPontos() {
+		return pontos;
+	}
+
+	public void setPontos(long pontos) {
+		this.pontos = pontos;
+	}
+
 	public int getId() {
 		return id;
 	}

@@ -40,8 +40,8 @@ public class PremioService {
 		}
 	}
 	
-	public Page<PremioModel> listaTodosOsPremios(Pageable page) {
-		Page<PremioModel> listaPremios = premioRepository.findAll(page);
+	public List<PremioModel> listaTodosOsPremios() {
+		List<PremioModel> listaPremios = premioRepository.findAll();
 		return listaPremios;
 	}
 }

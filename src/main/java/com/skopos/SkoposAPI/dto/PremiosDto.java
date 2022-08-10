@@ -65,7 +65,7 @@ public class PremiosDto {
 		this.quantidadeDisponivel = quantidadeDisponivel;
 	}
 	
-	public Page<PremiosDto> converter(Page<PremioModel> listaPremios){
-		return listaPremios.map(PremiosDto::new);
+	public List<PremiosDto> converter(List<PremioModel> listaPremios){
+		return listaPremios.stream().map(PremiosDto::new).collect(Collectors.toList());
 	}
 }

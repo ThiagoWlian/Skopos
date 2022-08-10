@@ -1,6 +1,8 @@
 package com.skopos.SkoposAPI.controller;
 
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,8 +45,8 @@ public class PremioController {
 	}
 	
 	@GetMapping
-	public ResponseEntity<Page<PremiosDto>> buscaTodosOsPremios(@PageableDefault(sort = "id", direction = Direction.DESC, page = 0, size = 10) Pageable page){
-		Page<PremioModel> listaPremios = premioService.listaTodosOsPremios(page);
+	public ResponseEntity<List<PremiosDto>> buscaTodosOsPremios(){
+		List<PremioModel> listaPremios = premioService.listaTodosOsPremios();
 		if(listaPremios.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}

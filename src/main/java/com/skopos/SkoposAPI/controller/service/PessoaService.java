@@ -39,7 +39,6 @@ public class PessoaService {
 		PermissaoModel permissao = permissaoService.cadastraPermissao(permissaoModel);
 		UsuarioModel novoUsuario = usuarioRepository.save(usuario);
 		novoUsuario.setPerfis(permissao);
-		System.out.println(novoUsuario.getId() + "    " + novoUsuario.getPerfis().get(0).getId() + "====================================");
 		usuarioRepository.save(novoUsuario);
 		EmpresaModel empresa = empresaRepository.findByCnpj(cnpj);
 		pessoa.setEmpresa(empresa);
@@ -51,5 +50,18 @@ public class PessoaService {
 	
 	public Optional<PessoaModel> buscarPessoaPorId(int idPessoa) {
 		return pessoaRepositoy.findById(idPessoa);
+	}
+	
+	public Long buscaPontosPessoaPorId(int id) {
+		return pessoaRepositoy.findPontosById(id);
+	}
+	
+	public Optional<PessoaModel> aumentaNumeroDePontos(int id, int numeroPontos) {
+		Optional<PessoaModel> pessoa = pessoaRepositoy.findById(id);
+		if(pessoa.isPresent()) {
+			pessoa.get().aumentarNumeroDePontos(numeroPontos);
+			pessoaRepositoy.save(pessoa.get());
+		}
+		return pessoa;
 	}
 }
