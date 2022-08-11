@@ -44,4 +44,9 @@ public class PremioService {
 		List<PremioModel> listaPremios = premioRepository.findAll();
 		return listaPremios;
 	}
+	
+	public List<PremioModel> listaTodosOsPremiosPorPessoa(int idPessoa) {
+		List<PremioModel> listaPremios = premioRepository.findPremiosEnviadosPorUsuarioId(idPessoa);
+		return listaPremios;
+	}
 }

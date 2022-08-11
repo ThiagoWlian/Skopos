@@ -52,4 +52,14 @@ public class PremioController {
 		}
 		return ResponseEntity.ok(new PremiosDto().converter(listaPremios));
 	}
+	
+	@GetMapping("/buscarPremio/{idPessoa}")
+	public ResponseEntity<List<PremiosDto>> buscaTodosOsPremiosPorPessoaId(@PathVariable int idPessoa){
+		List<PremioModel> listaPremios = premioService.listaTodosOsPremiosPorPessoa(idPessoa);
+		if(listaPremios.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(new PremiosDto().converter(listaPremios));
+	}
+	
 }

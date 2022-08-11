@@ -16,12 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.skopos.SkoposAPI.controller.service.PermissaoService;
 import com.skopos.SkoposAPI.controller.service.PessoaService;
-import com.skopos.SkoposAPI.dto.CadastroEmpresaDto;
 import com.skopos.SkoposAPI.dto.CadastroPessoaCompletoForm;
 import com.skopos.SkoposAPI.dto.PontosDto;
 import com.skopos.SkoposAPI.model.PessoaModel;
-
-import br.com.thiagowlian.apipedido.dto.ProdutoDto;
 
 @RestController
 @RequestMapping("/pessoa")
