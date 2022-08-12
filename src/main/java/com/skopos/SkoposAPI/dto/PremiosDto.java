@@ -12,12 +12,14 @@ public class PremiosDto {
 	private String descricao;
 	private String imagemCaminho;
 	private int quantidadeDisponivel;
+	private float valor;
 	
 	public PremiosDto(PremioModel premio) {
 		this.nome = premio.getNome();
 		this.descricao = premio.getDescricao();
 		this.imagemCaminho = premio.getImagemCaminho();
 		this.quantidadeDisponivel = premio.getQuantidadeDisponivel();
+		this.valor = premio.getValor();
 	}
 	
 	
@@ -68,4 +70,13 @@ public class PremiosDto {
 	public List<PremiosDto> converter(List<PremioModel> listaPremios){
 		return listaPremios.stream().map(PremiosDto::new).collect(Collectors.toList());
 	}
+
+	public float getValor() {
+		return valor;
+	}
+
+	public void setValor(float valor) {
+		this.valor = valor;
+	}
+	
 }

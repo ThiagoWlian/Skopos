@@ -19,14 +19,25 @@ public class PremioModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@Column
 	private String nome;
+	
+	@Column
 	private String descricao;
+	
 	@Column(name = "IMAGEM_CAMINHO")
 	private String imagemCaminho;
+	
 	@Column(name = "QUANTIDADE_DISPONIVEL")
 	private int quantidadeDisponivel;
+
+	@Column
+	private float valor;
+	
 	@ManyToOne
 	private EmpresaModel empresa;
+	
 	@ManyToMany
 	@JoinTable(name = "RESGATE_PREMIO",
 	joinColumns = @JoinColumn(name = "PREMIO_ID"),
@@ -36,11 +47,12 @@ public class PremioModel {
 	
 	public PremioModel() {}
 	
-	public PremioModel(String nome, String descricao, String imagemCaminho, int quantidadeDisponivel) {
+	public PremioModel(String nome, String descricao, String imagemCaminho, int quantidadeDisponivel, float valor) {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.imagemCaminho = imagemCaminho;
 		this.quantidadeDisponivel = quantidadeDisponivel;
+		this.valor = valor;
 	}
 	
 	public int getId() {
@@ -99,4 +111,11 @@ public class PremioModel {
 		this.empresa = empresa;
 	}
 	
+	public float getValor() {
+		return valor;
+	}
+
+	public void setValor(float valor) {
+		this.valor = valor;
+	}
 }

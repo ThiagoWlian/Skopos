@@ -5,6 +5,7 @@ public class CadastroPremioDto {
 	private String descricao;
 	private String imagemCaminho;
 	private int quantidadeDisponivel;
+	private float valor;
 	private String cnpj;
 	
 	public CadastroPremioDto(CadastroPremioForm premioForm) {
@@ -13,6 +14,7 @@ public class CadastroPremioDto {
 		this.imagemCaminho = premioForm.getImagemCaminho();
 		this.quantidadeDisponivel = premioForm.getQuantidadeDisponivel();
 		this.cnpj = premioForm.getCnpj();
+		this.valor = premioForm.getValor();
 	}
 	
 	public String getNome() {
@@ -45,4 +47,13 @@ public class CadastroPremioDto {
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
+
+	public float getValor() {
+		return valor;
+	}
+
+	public void setValor(float valor) {
+		this.valor = valor;
+	}
+	
 }

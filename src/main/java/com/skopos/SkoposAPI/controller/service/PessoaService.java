@@ -1,10 +1,13 @@
 package com.skopos.SkoposAPI.controller.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.skopos.SkoposAPI.dto.PessoaDto;
 import com.skopos.SkoposAPI.model.EmpresaModel;
 import com.skopos.SkoposAPI.model.EnderecoModel;
 import com.skopos.SkoposAPI.model.PermissaoModel;
@@ -50,6 +53,22 @@ public class PessoaService {
 	
 	public Optional<PessoaModel> buscarPessoaPorId(int idPessoa) {
 		return pessoaRepositoy.findById(idPessoa);
+	}
+	
+	public ResponseEntity findPessoaPorId(int idPessoa) {
+		Optional<PessoaModel> pessoa = pessoaRepositoy.findById(idPessoa);
+		if(pessoa.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(new PessoaDto(pessoa.get()));
+	}
+	
+	public ResponseEntity buscarTodasPessoa() {
+		List<PessoaModel> listaPessoas = pessoaRepositoy.findAll();
+		if(listaPessoas.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(new PessoaDto().converteParaList(listaPessoas));
 	}
 	
 	public Long buscaPontosPessoaPorId(int id) {

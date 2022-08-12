@@ -1,10 +1,12 @@
 package com.skopos.SkoposAPI.controller.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.skopos.SkoposAPI.model.EmpresaModel;
@@ -31,13 +33,16 @@ public class PremioService {
 		premioRepository.save(premioModel);
 	}
 	
-	public void enviaPremio(int idPremio, int idPessoa) {
-		PremioModel premio = premioRepository.findById(idPremio).get();
-		if(premio.getQuantidadeDisponivel() > 0) {
-			PessoaModel pessoa = pessoaService.buscarPessoaPorId(idPessoa).get();
-			premio.setPessoas(pessoa);
-			premioRepository.save(premio);
+	public ResponseEntity enviaPremio(int idPremio, int idPessoa) {
+		Optional<PremioModel> premio = premioRepository.findById(idPremio);
+		Optional<PessoaModel> pessoa = pessoaService.buscarPessoaPorId(idPessoa);
+		if(premio.get().getQuantidadeDisponivel() > 0 && premio.get().getValor() < pessoa.get().getPontos()) {
+			premio.get().setPessoas(pessoa.get());
+			pessoa.get().setPontos((long)(pessoa.get().getPontos() - premio.get().getValor()));
+			premioRepository.save(premio.get());
+			return ResponseEntity.ok().body(null);
 		}
+		return ResponseEntity.status(406).build();
 	}
 	
 	public List<PremioModel> listaTodosOsPremios() {

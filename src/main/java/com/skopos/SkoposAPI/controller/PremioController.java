@@ -39,9 +39,9 @@ public class PremioController {
 	}
 	
 	@PostMapping("/enviarPremio/{idPessoa}/{idPremio}")
-	public ResponseEntity<CadastroPremioDto> cadastraPremio(@PathVariable int idPessoa, @PathVariable int idPremio) {
-		premioService.enviaPremio(idPremio, idPessoa);
-		return ResponseEntity.ok().body(null);
+	public ResponseEntity enviaPremio(@PathVariable int idPessoa, @PathVariable int idPremio) {
+		ResponseEntity response = premioService.enviaPremio(idPremio, idPessoa);
+		return response;
 	}
 	
 	@GetMapping

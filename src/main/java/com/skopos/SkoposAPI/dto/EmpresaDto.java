@@ -1,6 +1,7 @@
 package com.skopos.SkoposAPI.dto;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -9,7 +10,7 @@ import com.skopos.SkoposAPI.model.EmpresaModel;
 import com.skopos.SkoposAPI.model.EnderecoModel;
 import com.skopos.SkoposAPI.model.UsuarioModel;
 
-public class CadastroEmpresaDto {
+public class EmpresaDto {
 	
 	private String nome;
 	private String cnpj;
@@ -19,7 +20,9 @@ public class CadastroEmpresaDto {
 	private String estado;
 	private String pais;
 	
-	public CadastroEmpresaDto(EmpresaModel empresa) {
+	public EmpresaDto() {}
+	
+	public EmpresaDto(EmpresaModel empresa) {
 		this.nome = empresa.getNome();
 		this.cnpj = empresa.getCnpj();
 		this.rua = empresa.getEndereco().getRua();
@@ -27,16 +30,6 @@ public class CadastroEmpresaDto {
 		this.cidade = empresa.getEndereco().getCidade();
 		this.estado = empresa.getEndereco().getEstado();
 		this.pais = empresa.getEndereco().getPais();
-	}
-	
-	public CadastroEmpresaDto(CadastroEmpresaForm empresa) {
-		this.nome = empresa.getNome();
-		this.cnpj = empresa.getCnpj();
-		this.rua = empresa.getRua();
-		this.numero = empresa.getNumero();
-		this.cidade = empresa.getCidade();
-		this.estado = empresa.getEstado();
-		this.pais = empresa.getPais();
 	}
 
 	public UsuarioModel converterParaUsuario(){
@@ -97,6 +90,10 @@ public class CadastroEmpresaDto {
 
 	public void setPais(String pais) {
 		this.pais = pais;
+	}
+	
+	public List<EmpresaDto> converteParaList(List<EmpresaModel> lista){
+		return lista.stream().map(EmpresaDto::new).collect(Collectors.toList());
 	}
 
 }

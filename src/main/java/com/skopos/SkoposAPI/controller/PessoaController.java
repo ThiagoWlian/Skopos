@@ -55,4 +55,14 @@ public class PessoaController {
 		 return ResponseEntity.notFound().build();
 	}
 	
+	@GetMapping("{idPessoa}")
+	public ResponseEntity<?> buscarPessoaPorId(@PathVariable int idPessoa) {
+		return pessoaService.findPessoaPorId(idPessoa);
+	}
+	
+	@GetMapping
+	public ResponseEntity<?> buscarPessoaPorId() {
+		return pessoaService.buscarTodasPessoa();
+	}
+	
 }
