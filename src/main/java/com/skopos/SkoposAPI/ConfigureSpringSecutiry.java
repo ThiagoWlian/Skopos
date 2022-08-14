@@ -39,9 +39,14 @@ public class ConfigureSpringSecutiry extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 	    http.authorizeRequests()
-	    .antMatchers(HttpMethod.POST,"/pessoa").permitAll()
-	    .antMatchers(HttpMethod.POST,"/empresa").permitAll()
-	    .antMatchers(HttpMethod.POST,"/auth").permitAll()
+	    .antMatchers(HttpMethod.POST,"/*").permitAll()
+	    .antMatchers(HttpMethod.GET,"/*").permitAll()
+	    .antMatchers(HttpMethod.POST,"/*/*").permitAll()
+	    .antMatchers(HttpMethod.GET,"/*/*").permitAll()
+	    .antMatchers(HttpMethod.POST,"/*/*/*").permitAll()
+	    .antMatchers(HttpMethod.GET,"/*/*/*").permitAll()
+	    .antMatchers(HttpMethod.POST,"/*/*/*/*").permitAll()
+	    .antMatchers(HttpMethod.GET,"/*/*/*/*").permitAll()
 	    .anyRequest().authenticated()
 	    .and().csrf().disable()
 	    .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
