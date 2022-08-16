@@ -27,7 +27,7 @@ public class QuestaoModel {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "questao")
     private List<OpcaoModel> opcao;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "questao")
-    private List<OpcaoModel> avaliacao;
+    private List<AvaliacaoModel> avaliacao;
     
 	public QuestaoModel(String questao, Date dataExpiracao) {
 		this.questao = questao;

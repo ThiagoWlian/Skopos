@@ -3,6 +3,8 @@ package com.skopos.SkoposAPI.controller.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -35,7 +37,8 @@ public class PessoaService {
 	@Autowired
 	private PermissaoService permissaoService;
 	
-	public void cadastraPessoa(EnderecoModel endereco, UsuarioModel usuario, PessoaModel pessoa, PermissaoModel permissaoModel , String cnpj) {
+	@Transactional
+	public void cadastraPessoa(EnderecoModel endereco, UsuarioModel usuario, PessoaModel pessoa, PermissaoModel permissaoModel , int id) {
 		
 		enderecoRepository.save(endereco);
 		pessoa.setEndereco(endereco);
@@ -43,7 +46,7 @@ public class PessoaService {
 		UsuarioModel novoUsuario = usuarioRepository.save(usuario);
 		novoUsuario.setPerfis(permissao);
 		usuarioRepository.save(novoUsuario);
-		EmpresaModel empresa = empresaRepository.findByCnpj(cnpj);
+		EmpresaModel empresa = empresaRepository.findById(id).get();
 		pessoa.setEmpresa(empresa);
 		pessoa.setUsuario(usuario);
 		pessoa.setEndereco(endereco);

@@ -1,5 +1,7 @@
 package com.skopos.SkoposAPI.controller.service;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +18,9 @@ public class QuestaoService {
 	@Autowired
 	private EmpresaRepository empresaRepository;
 	
-	public void cadastraQuestao(QuestaoModel questaoModel, String cnpj) {
-		EmpresaModel empresaModel = empresaRepository.findByCnpj(cnpj);
+	@Transactional
+	public void cadastraQuestao(QuestaoModel questaoModel, int id) {
+		EmpresaModel empresaModel = empresaRepository.findById(id).get();
 		questaoModel.setEmpresa(empresaModel);
 		questaoRepository.save(questaoModel);
 	}

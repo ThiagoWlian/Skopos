@@ -3,16 +3,14 @@ package com.skopos.SkoposAPI.model;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "EMPRESA")
@@ -22,6 +20,9 @@ public class EmpresaModel {
 	private int id;
 	private String nome;
 	private String cnpj;
+	@Column(name = "E-MAIL")
+	private String email;
+	private String telefone;
     @OneToOne(cascade=CascadeType.ALL)
 	private EnderecoModel endereco;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresa")
@@ -33,12 +34,14 @@ public class EmpresaModel {
     
     public EmpresaModel(){}
     
-	public EmpresaModel(String nome, String cnpj) {
+	public EmpresaModel(String nome, String cnpj, String email, String telefone) {
 		this.nome = nome;
 		this.cnpj = cnpj;
+		this.email = email;
+		this.telefone = email;
 	}
-	public EmpresaModel(String cnpj) {
-		this.cnpj = cnpj;
+	public EmpresaModel(int id) {
+		this.id = id;
 	}
 	public int getId() {
 		return id;
@@ -71,9 +74,20 @@ public class EmpresaModel {
 	public void setPessoas(PessoaModel pessoas) {
 		this.pessoas.add(pessoas);
 	}
-	
-	
-    
-    
-    
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 }

@@ -11,6 +11,9 @@ public class CadastroPessoaCompletoDto {
 	private String nomePessoa;
 	private String sobrenome;
 	private Date nascimento;
+	private String email;
+	private String cargo;
+	private String telefone;
 	private String nomeUsuario;
 	private String senha;
 	private String permissao;
@@ -19,8 +22,27 @@ public class CadastroPessoaCompletoDto {
 	private String cidade;
 	private String estado;
 	private String pais;
-	private String cnpj;
+	private int id;
 	
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getCargo() {
+		return cargo;
+	}
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+	public String getTelefone() {
+		return telefone;
+	}
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 	public String getNomePessoa() {
 		return nomePessoa;
 	}
@@ -81,11 +103,11 @@ public class CadastroPessoaCompletoDto {
 	public void setPais(String pais) {
 		this.pais = pais;
 	}
-	public String getCnpj() {
-		return cnpj;
+	public int getId() {
+		return this.id;
 	}
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
+	public void setCnpj(int id) {
+		this.id = id;
 	}
 	public String getPermissao() {
 		return permissao;
@@ -93,6 +115,10 @@ public class CadastroPessoaCompletoDto {
 	public void setPermissao(String permissao) {
 		this.permissao = permissao;
 	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	
 	
 }

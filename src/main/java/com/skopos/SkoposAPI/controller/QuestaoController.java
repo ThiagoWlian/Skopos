@@ -24,7 +24,7 @@ public class QuestaoController {
 	
 	@PostMapping("/cadastro")
 	public ResponseEntity<CadastroQuestaoDto> cadastraQuestao(@RequestBody @Valid CadastroQuestaoForm questaoForm) {
-		questaoService.cadastraQuestao(questaoForm.converteParaQuestaoModel(), questaoForm.getCnpj());
+		questaoService.cadastraQuestao(questaoForm.converteParaQuestaoModel(), questaoForm.getId());
 		return ResponseEntity.ok().body(new CadastroQuestaoDto(questaoForm));
 	}
 }

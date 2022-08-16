@@ -21,6 +21,12 @@ public class CadastroPessoaCompletoForm {
 	@NotNull
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date nascimento;
+	@NotNull
+	private String email;
+	@NotNull
+	private String cargo;
+	@NotNull
+	private String telefone;
 	@NotBlank
 	private String nomeUsuario;
 	@NotBlank
@@ -37,15 +43,15 @@ public class CadastroPessoaCompletoForm {
 	private String estado;
 	@NotBlank
 	private String pais;
-	@NotBlank
-	private String cnpj;
+	@NotNull
+	private int id;
 
 	public UsuarioModel converterParaUsuario(){
 		return new UsuarioModel(this.nomeUsuario, this.senha);
 	}
 	
 	public PessoaModel converterParaPessoa(){
-		return new PessoaModel(this.nomePessoa, this.sobrenome, this.nascimento);
+		return new PessoaModel(this.nomePessoa, this.sobrenome, this.nascimento, this.cargo, this.email, this.telefone);
 	}
 	
 	public EnderecoModel converterParaEndereco(){
@@ -57,7 +63,7 @@ public class CadastroPessoaCompletoForm {
 	}
 	
 	public EmpresaModel converterParaEmpresa(){
-		return new EmpresaModel(this.cnpj);
+		return new EmpresaModel(this.id);
 	}
 
 	public String getNomeUsuario() {
@@ -85,12 +91,12 @@ public class CadastroPessoaCompletoForm {
 		this.senha = senha;
 	}
 	
-	public String getCnpj() {
-		return cnpj;
+	public int getId() {
+		return id;
 	}
 
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
+	public void setCnpj(int id) {
+		this.id = id;
 	}
 
 	public String getRua() {

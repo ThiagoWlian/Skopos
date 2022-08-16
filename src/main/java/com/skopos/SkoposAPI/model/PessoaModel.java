@@ -24,6 +24,10 @@ public class PessoaModel {
 	private String nome;
 	private String sobrenome;
 	private Date nascimento;
+	@Column(name = "E-MAIL")
+	private String email;
+	private String cargo;
+	private String telefone;
 	@OneToOne
 	private EnderecoModel endereco;
 	@Column(name = "pontos_respostas")
@@ -43,11 +47,13 @@ public class PessoaModel {
 		this.id = id;
 	}
 	
-	public PessoaModel(String nome, String sobrenome, Date nascimento) {
-		super();
+	public PessoaModel(String nome, String sobrenome, Date nascimento, String cargo, String email, String telefone) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.nascimento = nascimento;
+		this.cargo = cargo;
+		this.email = email;
+		this.telefone = email;
 	}
 	
 	public void aumentarNumeroDePontos(int numeroPontos) {
@@ -104,5 +110,30 @@ public class PessoaModel {
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+	
 	
 }

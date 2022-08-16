@@ -32,7 +32,7 @@ public class PessoaController {
 	
 	@PostMapping
 	public ResponseEntity<CadastroPessoaCompletoForm> cadastraPessoa(@RequestBody @Valid CadastroPessoaCompletoForm pessoaForm) {
-		pessoaService.cadastraPessoa(pessoaForm.converterParaEndereco(), pessoaForm.converterParaUsuario(), pessoaForm.converterParaPessoa(), pessoaForm.converterParaPermissao(),pessoaForm.converterParaEmpresa().getCnpj());
+		pessoaService.cadastraPessoa(pessoaForm.converterParaEndereco(), pessoaForm.converterParaUsuario(), pessoaForm.converterParaPessoa(), pessoaForm.converterParaPermissao(),pessoaForm.converterParaEmpresa().getId());
 		permissaoService.cadastraPermissao(pessoaForm.converterParaPermissao());
 		return ResponseEntity.created(null).body(pessoaForm);
 	}

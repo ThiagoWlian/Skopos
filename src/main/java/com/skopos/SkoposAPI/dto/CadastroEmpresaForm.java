@@ -1,14 +1,12 @@
 package com.skopos.SkoposAPI.dto;
 
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.skopos.SkoposAPI.model.EmpresaModel;
 import com.skopos.SkoposAPI.model.EnderecoModel;
-import com.skopos.SkoposAPI.model.UsuarioModel;
+
 
 public class CadastroEmpresaForm {
 	
@@ -16,6 +14,10 @@ public class CadastroEmpresaForm {
 	private String nome;
 	@NotBlank
 	private String cnpj;
+	@NotBlank
+	private String email;
+	@NotBlank
+	private String telefone;
 	@NotBlank
 	private String rua;
 	@NotNull
@@ -32,6 +34,8 @@ public class CadastroEmpresaForm {
 	public CadastroEmpresaForm(EmpresaModel empresa, EnderecoModel endereco) {
 		this.nome = empresa.getNome();
 		this.cnpj = empresa.getCnpj();
+		this.telefone = empresa.getTelefone();
+		this.email = empresa.getEmail();
 		this.rua = endereco.getRua();
 		this.numero = endereco.getNumero();
 		this.cidade = endereco.getCidade();
@@ -40,7 +44,7 @@ public class CadastroEmpresaForm {
 	}
 
 	public EmpresaModel converterParaEmpresa(){
-		return new EmpresaModel(this.nome, this.cnpj);
+		return new EmpresaModel(this.nome, this.cnpj, this.email, this.telefone);
 	}
 	
 	public EnderecoModel converterParaEndereco(){
@@ -101,6 +105,22 @@ public class CadastroEmpresaForm {
 
 	public void setPais(String pais) {
 		this.pais = pais;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 	
 	

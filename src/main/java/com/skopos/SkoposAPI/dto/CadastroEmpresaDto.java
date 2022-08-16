@@ -1,18 +1,15 @@
 package com.skopos.SkoposAPI.dto;
 
-import java.util.List;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import com.skopos.SkoposAPI.model.EmpresaModel;
-import com.skopos.SkoposAPI.model.EnderecoModel;
 import com.skopos.SkoposAPI.model.UsuarioModel;
 
 public class CadastroEmpresaDto {
 	
 	private String nome;
 	private String cnpj;
+	private String email;
+	private String telefone;
 	private String rua;
 	private int numero;
 	private String cidade;
@@ -22,6 +19,8 @@ public class CadastroEmpresaDto {
 	public CadastroEmpresaDto(EmpresaModel empresa) {
 		this.nome = empresa.getNome();
 		this.cnpj = empresa.getCnpj();
+		this.email = empresa.getEmail();
+		this.telefone = empresa.getTelefone();
 		this.rua = empresa.getEndereco().getRua();
 		this.numero = empresa.getEndereco().getNumero();
 		this.cidade = empresa.getEndereco().getCidade();
@@ -97,6 +96,22 @@ public class CadastroEmpresaDto {
 
 	public void setPais(String pais) {
 		this.pais = pais;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 
 }

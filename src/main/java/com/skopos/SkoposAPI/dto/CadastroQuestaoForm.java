@@ -13,15 +13,15 @@ public class CadastroQuestaoForm {
 	private String questao;
 	@NotNull
 	private Date dataExpiracao;
-	@NotBlank
-	private String cnpj;
+	@NotNull
+	private int id;
 	
 	public QuestaoModel converteParaQuestaoModel() {
 		return new QuestaoModel(questao, dataExpiracao);
 	}
 	
 	public EmpresaModel converteParaEmpresaModel() {
-		return new EmpresaModel(cnpj);
+		return new EmpresaModel(id);
 	}
 	
 	public String getQuestao() {
@@ -36,10 +36,10 @@ public class CadastroQuestaoForm {
 	public void setDataExpiracao(Date dataExpiracao) {
 		this.dataExpiracao = dataExpiracao;
 	}
-	public String getCnpj() {
-		return cnpj;
+	public int getId() {
+		return this.id;
 	}
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
+	public void setId(int id) {
+		this.id = id;
 	}
 }
