@@ -16,8 +16,8 @@ public class CadastroPremioForm {
 	private int quantidadeDisponivel;
 	@NotNull
 	private float valor;
-	@NotBlank
-	private String cnpj;
+	@NotNull
+	private int id;
 	
 	public PremioModel converteParaPremioModel() {
 		return new PremioModel(nome,descricao,imagemCaminho,quantidadeDisponivel,valor);
@@ -55,12 +55,12 @@ public class CadastroPremioForm {
 		this.quantidadeDisponivel = quantidadeDisponivel;
 	}
 	
-	public String getCnpj() {
-		return cnpj;
+	public int getId() {
+		return id;
 	}
 	
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public float getValor() {

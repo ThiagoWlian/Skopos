@@ -20,7 +20,6 @@ public class EmpresaModel {
 	private int id;
 	private String nome;
 	private String cnpj;
-	@Column(name = "E-MAIL")
 	private String email;
 	private String telefone;
     @OneToOne(cascade=CascadeType.ALL)

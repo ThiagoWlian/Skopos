@@ -6,14 +6,14 @@ public class CadastroPremioDto {
 	private String imagemCaminho;
 	private int quantidadeDisponivel;
 	private float valor;
-	private String cnpj;
+	private int id;
 	
 	public CadastroPremioDto(CadastroPremioForm premioForm) {
 		this.nome = premioForm.getNome();
 		this.descricao = premioForm.getDescricao();
 		this.imagemCaminho = premioForm.getImagemCaminho();
 		this.quantidadeDisponivel = premioForm.getQuantidadeDisponivel();
-		this.cnpj = premioForm.getCnpj();
+		this.id = premioForm.getId();
 		this.valor = premioForm.getValor();
 	}
 	
@@ -41,11 +41,11 @@ public class CadastroPremioDto {
 	public void setQuantidadeDisponivel(int quantidadeDisponivel) {
 		this.quantidadeDisponivel = quantidadeDisponivel;
 	}
-	public String getCnpj() {
-		return cnpj;
+	public int getId() {
+		return this.id;
 	}
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public float getValor() {

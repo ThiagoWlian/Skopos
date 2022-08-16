@@ -21,6 +21,10 @@ public class CadastroPessoaCompletoForm {
 	@NotNull
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date nascimento;
+	@NotBlank
+	private String rg;
+	@NotBlank
+	private String cpf;
 	@NotNull
 	private String email;
 	@NotNull
@@ -51,7 +55,7 @@ public class CadastroPessoaCompletoForm {
 	}
 	
 	public PessoaModel converterParaPessoa(){
-		return new PessoaModel(this.nomePessoa, this.sobrenome, this.nascimento, this.cargo, this.email, this.telefone);
+		return new PessoaModel(this.nomePessoa, this.sobrenome, this.nascimento, this.cargo, this.email, this.telefone, this.rg, this.cpf);
 	}
 	
 	public EnderecoModel converterParaEndereco(){
@@ -162,6 +166,51 @@ public class CadastroPessoaCompletoForm {
 	public void setPermissao(String permissao) {
 		this.permissao = permissao;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getRg() {
+		return rg;
+	}
+
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	
 	
 	
 }

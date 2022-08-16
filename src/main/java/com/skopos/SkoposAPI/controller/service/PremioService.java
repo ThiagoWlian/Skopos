@@ -27,8 +27,8 @@ public class PremioService {
 	@Autowired
 	PessoaService pessoaService;
 	
-	public void cadastroPremio(PremioModel premioModel, String cnpj) {
-		EmpresaModel empresaModel = empresaRepository.findByCnpj(cnpj);
+	public void cadastroPremio(PremioModel premioModel, int id) {
+		EmpresaModel empresaModel = empresaRepository.findById(id).get();
 		premioModel.setEmpresa(empresaModel);
 		premioRepository.save(premioModel);
 	}

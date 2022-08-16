@@ -23,8 +23,9 @@ public class PessoaModel {
 	private int id;
 	private String nome;
 	private String sobrenome;
+	private String rg;
+	private String cpf;
 	private Date nascimento;
-	@Column(name = "E-MAIL")
 	private String email;
 	private String cargo;
 	private String telefone;
@@ -47,13 +48,15 @@ public class PessoaModel {
 		this.id = id;
 	}
 	
-	public PessoaModel(String nome, String sobrenome, Date nascimento, String cargo, String email, String telefone) {
+	public PessoaModel(String nome, String sobrenome, Date nascimento, String cargo, String email, String telefone, String rg, String cpf) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.nascimento = nascimento;
 		this.cargo = cargo;
 		this.email = email;
 		this.telefone = email;
+		this.cpf = cpf;
+		this.rg = rg;
 	}
 	
 	public void aumentarNumeroDePontos(int numeroPontos) {
@@ -134,6 +137,21 @@ public class PessoaModel {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	
+
+	public String getRg() {
+		return rg;
+	}
+
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 	
 }
