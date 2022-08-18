@@ -3,6 +3,8 @@ package com.skopos.SkoposAPI.controller.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,6 +35,7 @@ public class PremioService {
 		premioRepository.save(premioModel);
 	}
 	
+	@Transactional
 	public ResponseEntity enviaPremio(int idPremio, int idPessoa) {
 		Optional<PremioModel> premio = premioRepository.findById(idPremio);
 		Optional<PessoaModel> pessoa = pessoaService.buscarPessoaPorId(idPessoa);
@@ -40,9 +43,9 @@ public class PremioService {
 			premio.get().setPessoas(pessoa.get());
 			pessoa.get().setPontos((long)(pessoa.get().getPontos() - premio.get().getValor()));
 			premioRepository.save(premio.get());
-			return ResponseEntity.ok().body(null);
+			return ResponseEntity.ok().body("Prêmio enviado com sucesso!");
 		}
-		return ResponseEntity.status(406).build();
+		return ResponseEntity.status(406).body("Não existem pontos suficientes!");
 	}
 	
 	public List<PremioModel> listaTodosOsPremios() {

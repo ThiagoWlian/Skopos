@@ -1,9 +1,12 @@
 package com.skopos.SkoposAPI.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,10 +22,10 @@ public class FeedbackController {
 	private FeedbackService feedbackService;
 	
 	@PostMapping
-	public ResponseEntity<?> enviarFeedback(FeedbackDto feedbackDto){
+	public ResponseEntity<?> enviarFeedback(@RequestBody @Valid FeedbackDto feedbackDto){
 		FeedbackModel feedback = new FeedbackModel();
 		feedback.setFeedback(feedbackDto.getFeedback());
-		return feedbackService.criaFeedback(feedback);
+		return feedbackService.criaFeedback(feedback,feedbackDto.getIdEmpresa());
 	}
 	
 	@GetMapping

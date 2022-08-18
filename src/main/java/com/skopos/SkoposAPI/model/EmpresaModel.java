@@ -30,6 +30,8 @@ public class EmpresaModel {
     private List<PremioModel> premio;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresa")
     private List<QuestaoModel> questoes;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresa")
+    private List<QuestaoModel> feedbacks;
     
     public EmpresaModel(){}
     
