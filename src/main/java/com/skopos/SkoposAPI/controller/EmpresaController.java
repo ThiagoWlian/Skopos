@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skopos.SkoposAPI.controller.service.EmpresaService;
+import com.skopos.SkoposAPI.controller.service.ExercicioService;
+import com.skopos.SkoposAPI.controller.service.StravaService;
 import com.skopos.SkoposAPI.dto.CadastroEmpresaDto;
 import com.skopos.SkoposAPI.dto.CadastroEmpresaForm;
 
@@ -21,6 +23,9 @@ public class EmpresaController {
 	
 	@Autowired
 	EmpresaService empresaService;
+	
+	@Autowired
+	StravaService strava;
 	
 	@PostMapping
 	public ResponseEntity<CadastroEmpresaDto> cadastrarEmpresa(@RequestBody @Valid CadastroEmpresaForm empresaForm){

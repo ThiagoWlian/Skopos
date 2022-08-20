@@ -53,4 +53,14 @@ public class EmpresaService {
 		}
 		return ResponseEntity.ok(new EmpresaDto(empresa));
 	}
+	
+	public ResponseEntity<?> removerEmpresa(int idEmpresa){
+		try {
+			empresaRepository.deleteById(idEmpresa);
+			return ResponseEntity.ok().build();
+		}
+		catch (Exception e) {
+			return ResponseEntity.notFound().build();
+		}
+	}
 }

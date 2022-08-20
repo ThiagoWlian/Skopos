@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import com.skopos.SkoposAPI.model.AvaliacaoModel;
 import com.skopos.SkoposAPI.model.OpcaoModel;
@@ -12,6 +13,7 @@ import com.skopos.SkoposAPI.repository.AvaliacaoRepository;
 import com.skopos.SkoposAPI.repository.OpcaoRepository;
 import com.skopos.SkoposAPI.repository.QuestaoRepository;
 
+@Service
 public class AvaliacaoService {
 	@Autowired
 	AvaliacaoRepository avaliacaoRepository;

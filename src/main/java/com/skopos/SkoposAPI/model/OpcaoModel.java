@@ -23,6 +23,8 @@ public class OpcaoModel {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "opcao")
     private List<AvaliacaoModel> avaliacao;
     
+    public OpcaoModel() {}
+    
 	public OpcaoModel(String nome, String imagemCaminho) {
 		super();
 		this.nome = nome;
