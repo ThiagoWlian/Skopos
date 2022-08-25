@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
+import com.skopos.SkoposAPI.model.PessoaModel;
 import com.skopos.SkoposAPI.model.RecomendacoesModel;
 import com.skopos.SkoposAPI.repository.RecomendacoesRepository;
 
@@ -13,9 +14,17 @@ public class RecomendacoesService {
 	@Autowired
 	RecomendacoesRepository recomendacoesRepository;
 	
-	public ResponseEntity cadastraRecomendacao(RecomendacoesModel recomendacoesModel) {
-		recomendacoesRepository.save(recomendacoesModel);
-		return ResponseEntity.ok().build();
+	@Autowired
+	PessoaService pessoaService;
+	
+	public ResponseEntity cadastraRecomendacao(RecomendacoesModel recomendacoesModel, int pessoaId) {
+		Optional<PessoaModel> pessoa = pessoaService.buscarPessoaPorId(pessoaId);
+		if(pessoa.isPresent()) {
+			recomendacoesModel.setPessoa(pessoa.get());
+			recomendacoesRepository.save(recomendacoesModel);
+			return ResponseEntity.ok().build();
+		}
+		return ResponseEntity.notFound().build();
 	}
 	
 	public ResponseEntity listaRecomendacaoPorPessoaId(int pessoaId) {

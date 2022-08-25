@@ -5,8 +5,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.ManyToAny;
-
 @Entity
 @Table(name = "RECOMENDACOES")
 public class RecomendacoesModel {
@@ -15,7 +13,12 @@ public class RecomendacoesModel {
 	private String descricao;
 	
 	@ManyToOne
-	PessoaModel pessoas;
+	PessoaModel pessoa;
+	
+	public RecomendacoesModel(String descricao, int pessoaId) {
+		this.descricao = descricao;
+		this.pessoa.setId(pessoaId);
+	}
 	
 	public int getId() {
 		return id;
@@ -29,10 +32,10 @@ public class RecomendacoesModel {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public PessoaModel getPessoas() {
-		return pessoas;
+	public PessoaModel getPessoa() {
+		return pessoa;
 	}
-	public void setPessoas(PessoaModel pessoas) {
-		this.pessoas = pessoas;
+	public void setPessoa(PessoaModel pessoas) {
+		this.pessoa = pessoas;
 	}
 }

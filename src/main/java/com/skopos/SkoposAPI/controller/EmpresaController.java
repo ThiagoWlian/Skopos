@@ -28,9 +28,8 @@ public class EmpresaController {
 	StravaService strava;
 	
 	@PostMapping
-	public ResponseEntity<CadastroEmpresaDto> cadastrarEmpresa(@RequestBody @Valid CadastroEmpresaForm empresaForm){
-		empresaService.cadastraEmpresa(empresaForm.converterParaEndereco(),empresaForm.converterParaEmpresa());
-		return ResponseEntity.created(null).body(new CadastroEmpresaDto(empresaForm));
+	public ResponseEntity cadastrarEmpresa(@RequestBody @Valid CadastroEmpresaForm empresaForm){
+		return empresaService.cadastraEmpresa(empresaForm.converterParaEndereco(),empresaForm.converterParaEmpresa());
 	}
 	
 	@GetMapping

@@ -3,10 +3,13 @@ package com.skopos.SkoposAPI.controller.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.skopos.SkoposAPI.dto.CadastroEmpresaDto;
 import com.skopos.SkoposAPI.dto.EmpresaDto;
 import com.skopos.SkoposAPI.model.EmpresaModel;
 import com.skopos.SkoposAPI.model.EnderecoModel;
@@ -24,10 +27,16 @@ public class EmpresaService {
 	@Autowired
 	private EnderecoRepository enderecoRepository;
 	
-	public void cadastraEmpresa(EnderecoModel endereco, EmpresaModel empresa) {
-		enderecoRepository.save(endereco);
-		empresa.setEndereco(endereco);
-		empresaRepository.save(empresa);
+	@Transactional
+	public ResponseEntity cadastraEmpresa(EnderecoModel endereco, EmpresaModel empresa) {
+		Optional<EmpresaModel> empresaOptional = empresaRepository.findByCnpjOptional(empresa.getCnpj());
+		if(empresaOptional.isPresent()) {
+			enderecoRepository.save(endereco);
+			empresa.setEndereco(endereco);
+			empresaRepository.save(empresa);
+			return ResponseEntity.created(null).body(new CadastroEmpresaDto(empresa, endereco));
+		}
+		return ResponseEntity.badRequest().build();
 	}
 	
 	public ResponseEntity buscaTodasEmpresas() {

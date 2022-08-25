@@ -2,6 +2,7 @@ package com.skopos.SkoposAPI.dto;
 
 
 import com.skopos.SkoposAPI.model.EmpresaModel;
+import com.skopos.SkoposAPI.model.EnderecoModel;
 import com.skopos.SkoposAPI.model.UsuarioModel;
 
 public class CadastroEmpresaDto {
@@ -36,6 +37,16 @@ public class CadastroEmpresaDto {
 		this.cidade = empresa.getCidade();
 		this.estado = empresa.getEstado();
 		this.pais = empresa.getPais();
+	}
+	
+	public CadastroEmpresaDto(EmpresaModel empresa, EnderecoModel endereco) {
+		this.nome = empresa.getNome();
+		this.cnpj = empresa.getCnpj();
+		this.rua = endereco.getRua();
+		this.numero = endereco.getNumero();
+		this.cidade = endereco.getCidade();
+		this.estado = endereco.getEstado();
+		this.pais = endereco.getPais();
 	}
 
 	public UsuarioModel converterParaUsuario(){
