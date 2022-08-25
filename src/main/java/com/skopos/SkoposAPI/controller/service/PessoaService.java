@@ -86,4 +86,17 @@ public class PessoaService {
 		}
 		return pessoa;
 	}
+	
+	public Optional<PessoaModel> aumentaNumeroPAI(int id, int numeroPontos) {
+		Optional<PessoaModel> pessoa = pessoaRepositoy.findById(id);
+		if(pessoa.isPresent()) {
+			pessoa.get().aumentarNumeroPai(numeroPontos);
+			pessoaRepositoy.save(pessoa.get());
+		}
+		return pessoa;
+	}
+	
+	public Long buscaPaiPessoaPorId(int id) {
+		return pessoaRepositoy.findPaiById(id);
+	}
 }

@@ -9,5 +9,8 @@ public interface PessoaRepositoy extends JpaRepository<PessoaModel, Integer>{
 	
 	@Query("Select pontos from PessoaModel Where id = ?1")
 	public long findPontosById(int id);
+	
+	@Query("Select pai from PessoaModel Where id = ?1")
+	public long findPaiById(int id);
 
 }

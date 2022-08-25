@@ -29,6 +29,7 @@ public class PessoaModel {
 	private String email;
 	private String cargo;
 	private String telefone;
+	private int pai;
 	@OneToOne
 	private EnderecoModel endereco;
 	@Column(name = "pontos_respostas")
@@ -41,6 +42,10 @@ public class PessoaModel {
 	private List<ChavePixModel> chaves;
 	@ManyToMany(mappedBy = "pessoas")
 	private List<PremioModel> premios;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
+	private List<ExercicioModel> exercicios;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
+	private List<RecomendacoesModel> recomendacoes;
 	
 	public PessoaModel() {}
 	
@@ -61,6 +66,10 @@ public class PessoaModel {
 	
 	public void aumentarNumeroDePontos(int numeroPontos) {
 		this.pontos += numeroPontos;
+	}
+	
+	public void aumentarNumeroPai(int numeroPontos) {
+		this.pai += numeroPontos;
 	}
 	
 	public long getPontos() {
@@ -152,6 +161,14 @@ public class PessoaModel {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+
+	public int getPai() {
+		return pai;
+	}
+
+	public void setPai(int pai) {
+		this.pai = pai;
 	}
 	
 }

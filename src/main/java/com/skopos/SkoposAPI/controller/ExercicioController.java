@@ -2,14 +2,13 @@ package com.skopos.SkoposAPI.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skopos.SkoposAPI.controller.service.ExercicioService;
 import com.skopos.SkoposAPI.controller.service.StravaService;
-import com.skopos.SkoposAPI.dto.exercicios.CaminhadaDto;
 
 @RestController
 @RequestMapping("/exercicio")
@@ -21,13 +20,9 @@ public class ExercicioController {
 	@Autowired
 	StravaService stravaService;
 	
-	@GetMapping("/{code}")
-	public ResponseEntity<?> buscarCalculoPontos(@PathVariable String code){
+	@PostMapping("/{code}/{idUser}")
+	public ResponseEntity<?> sincronizarExercicios(@PathVariable String code, @PathVariable int idUser){
 		String acessToken = stravaService.getAcessToekenStrava(code);
-		if(!(acessToken.isBlank() || acessToken.isEmpty())) {
-			double calculoPontos = exercicioService.getCalculoExercicio(acessToken);
-			return ResponseEntity.ok(calculoPontos);
-		}
-		return ResponseEntity.badRequest().build();
+		return exercicioService.insereExercicio(acessToken, idUser);
 	}
 }
