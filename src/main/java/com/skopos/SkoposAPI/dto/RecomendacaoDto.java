@@ -12,6 +12,8 @@ public class RecomendacaoDto {
 	@NotNull
 	private int idPessoa;
 	
+	public RecomendacaoDto() {}
+	
 	public RecomendacaoDto(String descricao) {
 		this.descricao = descricao;
 	}

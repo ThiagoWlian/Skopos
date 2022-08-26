@@ -29,6 +29,7 @@ public class PessoaModel {
 	private String email;
 	private String cargo;
 	private String telefone;
+	private String area;
 	private int pai;
 	@OneToOne
 	private EnderecoModel endereco;
@@ -53,7 +54,7 @@ public class PessoaModel {
 		this.id = id;
 	}
 	
-	public PessoaModel(String nome, String sobrenome, Date nascimento, String cargo, String email, String telefone, String rg, String cpf) {
+	public PessoaModel(String nome, String sobrenome, Date nascimento, String cargo, String email, String telefone, String rg, String cpf, String area) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.nascimento = nascimento;
@@ -62,8 +63,17 @@ public class PessoaModel {
 		this.telefone = email;
 		this.cpf = cpf;
 		this.rg = rg;
+		this.area = area;
 	}
-	
+		
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
 	public void aumentarNumeroDePontos(int numeroPontos) {
 		this.pontos += numeroPontos;
 	}

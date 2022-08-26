@@ -15,8 +15,11 @@ public class RecomendacoesModel {
 	@ManyToOne
 	PessoaModel pessoa;
 	
+	public RecomendacoesModel() {}
+	
 	public RecomendacoesModel(String descricao, int pessoaId) {
 		this.descricao = descricao;
+		this.pessoa = new PessoaModel();
 		this.pessoa.setId(pessoaId);
 	}
 	

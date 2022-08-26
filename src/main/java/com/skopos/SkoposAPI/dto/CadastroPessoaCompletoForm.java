@@ -32,6 +32,8 @@ public class CadastroPessoaCompletoForm {
 	@NotNull
 	private String telefone;
 	@NotBlank
+	private String area;
+	@NotBlank
 	private String nomeUsuario;
 	@NotBlank
 	private String senha;
@@ -55,7 +57,7 @@ public class CadastroPessoaCompletoForm {
 	}
 	
 	public PessoaModel converterParaPessoa(){
-		return new PessoaModel(this.nomePessoa, this.sobrenome, this.nascimento, this.cargo, this.email, this.telefone, this.rg, this.cpf);
+		return new PessoaModel(this.nomePessoa, this.sobrenome, this.nascimento, this.cargo, this.email, this.telefone, this.rg, this.cpf, this.area);
 	}
 	
 	public EnderecoModel converterParaEndereco(){
@@ -78,9 +80,16 @@ public class CadastroPessoaCompletoForm {
 		this.nomeUsuario = nomeUsuario;
 	}
 	
-
 	public String getSobrenome() {
 		return sobrenome;
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
 	}
 
 	public void setSobrenome(String sobrenome) {

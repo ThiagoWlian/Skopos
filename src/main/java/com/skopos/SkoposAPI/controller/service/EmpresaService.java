@@ -29,8 +29,8 @@ public class EmpresaService {
 	
 	@Transactional
 	public ResponseEntity cadastraEmpresa(EnderecoModel endereco, EmpresaModel empresa) {
-		Optional<EmpresaModel> empresaOptional = empresaRepository.findByCnpjOptional(empresa.getCnpj());
-		if(empresaOptional.isPresent()) {
+		Optional<EmpresaModel> empresaOptional = empresaRepository.findByCnpj(empresa.getCnpj());
+		if(empresaOptional.isEmpty()) {
 			enderecoRepository.save(endereco);
 			empresa.setEndereco(endereco);
 			empresaRepository.save(empresa);
@@ -56,7 +56,7 @@ public class EmpresaService {
 	}
 	
 	public ResponseEntity buscaEmpresaPorCnpj(String cnpj) {
-		EmpresaModel empresa = empresaRepository.findByCnpj(cnpj);
+		EmpresaModel empresa = empresaRepository.findByCnpj(cnpj).get();
 		if(empresa == null) {
 			return ResponseEntity.noContent().build();
 		}

@@ -15,6 +15,7 @@ public class PessoaDto {
 	private String sobrenome;
 	private Date nascimento;
 	private String email;
+	private String area;
 	private String cargo;
 	private String telefone;
 	private String nomeUsuario;
@@ -43,11 +44,18 @@ public class PessoaDto {
 		this.estado = pessoa.getEndereco().getEstado();
 		this.pais = pessoa.getEndereco().getPais();
 		this.id = pessoa.getEmpresa().getId();
+		this.area = pessoa.getArea();
 	}
 	public PessoaDto() {}
 	
 	public String getNomePessoa() {
 		return nomePessoa;
+	}
+	public String getArea() {
+		return area;
+	}
+	public void setArea(String area) {
+		this.area = area;
 	}
 	public void setNomePessoa(String nomePessoa) {
 		this.nomePessoa = nomePessoa;
