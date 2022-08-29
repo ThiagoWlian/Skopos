@@ -6,6 +6,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.skopos.SkoposAPI.model.ChavePixModel;
 import com.skopos.SkoposAPI.model.EmpresaModel;
 import com.skopos.SkoposAPI.model.EnderecoModel;
 import com.skopos.SkoposAPI.model.PermissaoModel;
@@ -49,6 +50,8 @@ public class CadastroPessoaCompletoForm {
 	private String estado;
 	@NotBlank
 	private String pais;
+	@NotBlank
+	private String pix;
 	@NotNull
 	private int id;
 
@@ -62,6 +65,10 @@ public class CadastroPessoaCompletoForm {
 	
 	public EnderecoModel converterParaEndereco(){
 		return new EnderecoModel(this.rua, this.numero, this.cidade, this.estado,this.pais);
+	}
+	
+	public ChavePixModel converterParaChavePix() {
+		return new ChavePixModel(pix);
 	}
 	
 	public PermissaoModel converterParaPermissao(){
@@ -219,7 +226,12 @@ public class CadastroPessoaCompletoForm {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	
-	
-	
+
+	public String getPix() {
+		return pix;
+	}
+
+	public void setPix(String pix) {
+		this.pix = pix;
+	}
 }

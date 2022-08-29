@@ -11,22 +11,16 @@ import javax.persistence.Table;
 @Table(name = "CHAVE_PIX")
 public class ChavePixModel {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
 	private String chave;
 	@ManyToOne
 	private PessoaModel pessoa;
 	
+	public ChavePixModel() {
+		
+	}
+	
 	public ChavePixModel(String chave) {
 		this.chave = chave;
-	}
-	
-	public int getId() {
-		return id;
-	}
-	
-	public void setId(int id) {
-		this.id = id;
 	}
 	
 	public String getChave() {

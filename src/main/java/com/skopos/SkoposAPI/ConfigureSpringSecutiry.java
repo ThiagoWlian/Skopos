@@ -50,6 +50,8 @@ public class ConfigureSpringSecutiry extends WebSecurityConfigurerAdapter{
 	    .antMatchers(HttpMethod.PUT,"/*/*/*").permitAll()
 	    .antMatchers(HttpMethod.POST,"/*/*/*/*").permitAll()
 	    .antMatchers(HttpMethod.GET,"/*/*/*/*").permitAll()
+	    .antMatchers(HttpMethod.DELETE,"/*").permitAll()
+	    .antMatchers(HttpMethod.DELETE,"/*/*").permitAll()
 	    .anyRequest().authenticated()
 	    .and().csrf().disable()
 	    .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

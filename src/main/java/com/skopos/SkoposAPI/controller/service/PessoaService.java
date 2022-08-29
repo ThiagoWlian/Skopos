@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.skopos.SkoposAPI.dto.PessoaDto;
+import com.skopos.SkoposAPI.model.ChavePixModel;
 import com.skopos.SkoposAPI.model.EmpresaModel;
 import com.skopos.SkoposAPI.model.EnderecoModel;
 import com.skopos.SkoposAPI.model.PermissaoModel;
@@ -37,8 +38,11 @@ public class PessoaService {
 	@Autowired
 	private PermissaoService permissaoService;
 	
+	@Autowired
+	private ChavePixService chavePixService;
+	
 	@Transactional
-	public void cadastraPessoa(EnderecoModel endereco, UsuarioModel usuario, PessoaModel pessoa, PermissaoModel permissaoModel , int id) {
+	public void cadastraPessoa(EnderecoModel endereco, UsuarioModel usuario, PessoaModel pessoa, PermissaoModel permissaoModel, ChavePixModel chavePix, int id) {
 		
 		enderecoRepository.save(endereco);
 		pessoa.setEndereco(endereco);
@@ -50,8 +54,8 @@ public class PessoaService {
 		pessoa.setEmpresa(empresa);
 		pessoa.setUsuario(usuario);
 		pessoa.setEndereco(endereco);
-		pessoaRepositoy.save(pessoa);
-		
+		PessoaModel pessoaModel = pessoaRepositoy.save(pessoa);
+		chavePixService.cadastraChavePix(chavePix, pessoaModel.getId());
 	}
 	
 	public Optional<PessoaModel> buscarPessoaPorId(int idPessoa) {

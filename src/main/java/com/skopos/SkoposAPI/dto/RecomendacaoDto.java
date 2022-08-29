@@ -1,8 +1,12 @@
 package com.skopos.SkoposAPI.dto;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.skopos.SkoposAPI.model.PremioModel;
 import com.skopos.SkoposAPI.model.RecomendacoesModel;
 
 public class RecomendacaoDto {
@@ -13,6 +17,11 @@ public class RecomendacaoDto {
 	private int idPessoa;
 	
 	public RecomendacaoDto() {}
+	
+	public RecomendacaoDto (RecomendacoesModel recomendacoes) {
+		this.descricao = recomendacoes.getDescricao();
+		this.idPessoa = recomendacoes.getId();
+	}
 	
 	public RecomendacaoDto(String descricao) {
 		this.descricao = descricao;
@@ -36,5 +45,9 @@ public class RecomendacaoDto {
 	
 	public RecomendacoesModel converteParaRecomendacaoModel() {
 		return new RecomendacoesModel(this.descricao, this.idPessoa);
+	}
+	
+	public List<RecomendacaoDto> converter(List<RecomendacoesModel> listaRecomendacoes){
+		return listaRecomendacoes.stream().map(RecomendacaoDto::new).collect(Collectors.toList());
 	}
 }

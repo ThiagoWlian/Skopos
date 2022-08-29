@@ -24,7 +24,7 @@ public class QuestaoModel {
 	private Date dataExpiracao;
 	@ManyToOne
 	private EmpresaModel empresa;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "questao")
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "questao")
     private List<OpcaoModel> opcao;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "questao")
     private List<AvaliacaoModel> avaliacao;
