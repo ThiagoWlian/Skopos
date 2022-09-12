@@ -1,5 +1,9 @@
 package com.skopos.SkoposAPI.controller.service;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,16 +20,20 @@ public class QuestaoService {
 	private QuestaoRepository questaoRepository;
 	
 	@Autowired
+	private OpcaoService opcaoService;
+	
+	@Autowired
 	private EmpresaRepository empresaRepository;
 	
 	@Transactional
-	public void cadastraQuestao(QuestaoModel questaoModel, int id) {
+	public QuestaoModel cadastraQuestao(QuestaoModel questaoModel, int id) {
 		EmpresaModel empresaModel = empresaRepository.findById(id).get();
 		questaoModel.setEmpresa(empresaModel);
-		questaoRepository.save(questaoModel);
+		QuestaoModel questao = questaoRepository.save(questaoModel);
+		return questao;
 	}
 	
-	public QuestaoModel buscaQuestoesAtivasPorEmpresaPorUsuario(int idEmpresa) {
-		return null;
+	public List<QuestaoModel> buscaQuestoesAtivasPorEmpresaPorUsuario(int idEmpresa) {
+		return questaoRepository.findByEmpresaStatus(idEmpresa, Date.valueOf(LocalDate.now()));
 	}
 }

@@ -6,17 +6,19 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "QUESTAO")
 public class QuestaoModel {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Size(min = 5, max = 150)
 	private String questao;
@@ -43,30 +45,39 @@ public class QuestaoModel {
 	public int getID() {
 		return id;
 	}
+	
 	public void setID(int iD) {
 		id = iD;
 	}
+	
 	public String getQuestao() {
 		return questao;
 	}
+	
 	public void setQuestao(String questao) {
 		this.questao = questao;
 	}
+	
 	public Date getDataExpiracao() {
 		return dataExpiracao;
 	}
+	
 	public void setDataExpiracao(Date dataExpiracao) {
 		this.dataExpiracao = dataExpiracao;
 	}
+	
 	public EmpresaModel getEmpresa() {
 		return empresa;
 	}
+	
 	public void setEmpresa(EmpresaModel empresa) {
 		this.empresa = empresa;
 	}
+	
 	public List<OpcaoModel> getOpcao() {
 		return opcao;
 	}
+	
 	public void setOpcao(List<OpcaoModel> opcao) {
 		this.opcao = opcao;
 	}

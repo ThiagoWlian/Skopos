@@ -5,10 +5,12 @@ import java.sql.Date;
 public class CadastroQuestaoDto {
 	private String questao;
 	private Date dataExpiracao;
+	private int idQuestao;
 	
-	public CadastroQuestaoDto(CadastroQuestaoForm questaoForm) {
+	public CadastroQuestaoDto(CadastroQuestaoForm questaoForm, int idQuestao) {
 		this.questao = questaoForm.getQuestao();
 		this.dataExpiracao = questaoForm.getDataExpiracao();
+		this.idQuestao = idQuestao;
 	}
 	
 	public String getQuestao() {
@@ -23,4 +25,14 @@ public class CadastroQuestaoDto {
 	public void setDataExpiracao(Date dataExpiracao) {
 		this.dataExpiracao = dataExpiracao;
 	}
+
+	public int getIdQuestao() {
+		return idQuestao;
+	}
+
+	public void setIdQuestao(int idQuestao) {
+		this.idQuestao = idQuestao;
+	}
+	
+	
 }
