@@ -2,9 +2,9 @@ package com.skopos.SkoposAPI.dto;
 
 public class DadosOpcaoQuestaoDto {
 	private String nome;
-	private int quantidade;
+	private long quantidade;
 	
-	public DadosOpcaoQuestaoDto(String nome, int quantidade) {
+	public DadosOpcaoQuestaoDto(String nome, long quantidade) {
 		this.nome = nome;
 		this.quantidade = quantidade;
 	}
@@ -17,7 +17,7 @@ public class DadosOpcaoQuestaoDto {
 		this.nome = nome;
 	}
 	
-	public int getQuantidade() {
+	public long getQuantidade() {
 		return quantidade;
 	}
 	
