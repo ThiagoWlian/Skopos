@@ -6,6 +6,7 @@ com\skopos\SkoposAPI\repository\PremioRepository.class
 com\skopos\SkoposAPI\controller\service\TokenService.class
 com\skopos\SkoposAPI\model\EmpresaModel.class
 com\skopos\SkoposAPI\repository\ExercicioRepository.class
+com\skopos\SkoposAPI\dto\RespostasQuestoesDto.class
 com\skopos\SkoposAPI\SkoposApiApplication.class
 com\skopos\SkoposAPI\dto\CadastroQuestaoDto.class
 com\skopos\SkoposAPI\controller\AvaliacaoController.class
@@ -34,6 +35,7 @@ com\skopos\SkoposAPI\model\RecomendacoesModel.class
 com\skopos\SkoposAPI\controller\service\EmpresaService.class
 com\skopos\SkoposAPI\controller\service\ExercicioService$1.class
 com\skopos\SkoposAPI\dto\PontosDto.class
+com\skopos\SkoposAPI\dto\OpcaoDto.class
 com\skopos\SkoposAPI\controller\service\ExercicioService.class
 com\skopos\SkoposAPI\controller\service\FeedbackService.class
 com\skopos\SkoposAPI\dto\PontosExercicioDto.class
@@ -45,6 +47,7 @@ com\skopos\SkoposAPI\dto\CadastroEmpresaDto.class
 com\skopos\SkoposAPI\dto\CadastroQuestaoForm.class
 com\skopos\SkoposAPI\model\EnderecoModel.class
 com\skopos\SkoposAPI\controller\PremioController.class
+com\skopos\SkoposAPI\dto\DadosOpcaoQuestaoDto.class
 com\skopos\SkoposAPI\dto\TokenDto.class
 com\skopos\SkoposAPI\controller\ChavePixController.class
 com\skopos\SkoposAPI\controller\FeedbackController.class
@@ -78,6 +81,7 @@ com\skopos\SkoposAPI\model\ChavePixModel.class
 com\skopos\SkoposAPI\controller\service\ExercicioService$2.class
 com\skopos\SkoposAPI\controller\AutenticacaoController.class
 com\skopos\SkoposAPI\model\UsuarioModel.class
+com\skopos\SkoposAPI\dto\QuestaoDto.class
 com\skopos\SkoposAPI\model\ExercicioModel.class
 com\skopos\SkoposAPI\model\OpcaoModel.class
 com\skopos\SkoposAPI\controller\service\StravaService.class

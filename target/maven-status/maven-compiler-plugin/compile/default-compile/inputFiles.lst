@@ -7,9 +7,11 @@ C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\model\OpcaoMode
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\CadastroEmpresaDto.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\CadastroUsuarioDto.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\controller\service\OpcaoService.java
+C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\DadosOpcaoQuestaoDto.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\CadastroPremioDto.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\PessoaDto.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\FeedbackDto.java
+C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\OpcaoDto.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\model\PessoaModel.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\model\QuestaoModel.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\repository\ChavePixRepository.java
@@ -50,11 +52,13 @@ C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\CadastroPes
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\repository\PessoaRepositoy.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\controller\service\EmpresaService.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\PremiosDto.java
+C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\RespostasQuestoesDto.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\model\ExercicioModel.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\controller\service\PessoaService.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\controller\service\RecomendacoesService.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\repository\QuestaoRepository.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\StravaDto.java
+C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\QuestaoDto.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\TokenDto.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\CadastroQuestaoForm.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\repository\PremioRepository.java

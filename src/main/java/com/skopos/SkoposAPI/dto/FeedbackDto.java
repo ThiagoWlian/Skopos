@@ -1,13 +1,25 @@
 package com.skopos.SkoposAPI.dto;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
+import com.skopos.SkoposAPI.model.FeedbackModel;
 
 public class FeedbackDto {
 	@NotBlank
 	private String feedback;
 	@NotNull
 	private int idEmpresa;
+	
+	public FeedbackDto() {}
+	
+	public FeedbackDto(FeedbackModel feedback) {
+		this.feedback = feedback.getFeedback();
+		this.idEmpresa = feedback.getId();
+	}
 
 	public String getFeedback() {
 		return feedback;
@@ -23,5 +35,9 @@ public class FeedbackDto {
 
 	public void setIdEmpresa(int idEmpresa) {
 		this.idEmpresa = idEmpresa;
+	}
+	
+	public List<FeedbackDto> converteListaFeedbackModel(List<FeedbackModel> lista) {
+		return lista.stream().map(FeedbackDto::new).collect(Collectors.toList());
 	}
 }

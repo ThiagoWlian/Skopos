@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.skopos.SkoposAPI.dto.FeedbackDto;
 import com.skopos.SkoposAPI.model.EmpresaModel;
 import com.skopos.SkoposAPI.model.FeedbackModel;
 import com.skopos.SkoposAPI.repository.EmpresaRepository;
@@ -31,11 +32,19 @@ public class FeedbackService {
 		return ResponseEntity.badRequest().body("ID da empresa inexistente!");
 	}
 	
+	public ResponseEntity<?> buscaFeedbackByEmpresa(int id){
+		List<FeedbackModel> feedbackList = feedbackRepository.findByEmpresaId(id);
+		if(feedbackList.isEmpty()) {
+			return ResponseEntity.noContent().build();
+		}
+		return ResponseEntity.ok(new FeedbackDto().converteListaFeedbackModel(feedbackList));
+	}
+	
 	public ResponseEntity<?> buscaFeedback(){
 		List<FeedbackModel> feedbackList = feedbackRepository.findAll();
 		if(feedbackList.isEmpty()) {
 			return ResponseEntity.noContent().build();
 		}
-		return ResponseEntity.ok().body(feedbackList);
+		return ResponseEntity.ok(new FeedbackDto().converteListaFeedbackModel(feedbackList));
 	}
 }
