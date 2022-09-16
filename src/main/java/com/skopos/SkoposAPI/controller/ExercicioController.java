@@ -20,9 +20,9 @@ public class ExercicioController {
 	@Autowired
 	StravaService stravaService;
 	
-	@PostMapping("/{code}/{idUser}")
-	public ResponseEntity<?> sincronizarExercicios(@PathVariable String code, @PathVariable int idUser){
+	@PostMapping("/{code}/{idPessoa}")
+	public ResponseEntity<?> sincronizarExercicios(@PathVariable String code, @PathVariable int idPessoa){
 		String acessToken = stravaService.getAcessToekenStrava(code);
-		return exercicioService.insereExercicio(acessToken, idUser);
+		return exercicioService.insereExercicio(acessToken, idPessoa);
 	}
 }

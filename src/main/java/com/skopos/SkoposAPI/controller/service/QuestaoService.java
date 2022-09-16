@@ -43,8 +43,8 @@ public class QuestaoService {
 		return questaoRepository.findByEmpresaStatus(idEmpresa, Date.valueOf(LocalDate.now()));
 	}
 	
-	public ResponseEntity<List<RespostasQuestoesDto>> listaRespostasQuestoes(){
-		List<QuestaoDto> listQuestoes = questaoRepository.findNomeById();
+	public ResponseEntity<List<RespostasQuestoesDto>> listaRespostasQuestoes(int empresaId){
+		List<QuestaoDto> listQuestoes = questaoRepository.findNomeById(empresaId);
 		List<RespostasQuestoesDto> listRespostas = new ArrayList<RespostasQuestoesDto>();
 
 		for (QuestaoDto questao : listQuestoes) {

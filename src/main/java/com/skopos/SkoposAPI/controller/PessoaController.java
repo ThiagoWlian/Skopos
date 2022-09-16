@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import com.skopos.SkoposAPI.dto.PaiDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -59,7 +60,12 @@ public class PessoaController {
 	public ResponseEntity<?> buscarPessoaPorId(@PathVariable int idPessoa) {
 		return pessoaService.findPessoaPorId(idPessoa);
 	}
-	
+
+	@GetMapping("/pai/{idPessoa}")
+	public ResponseEntity<?> buscarPaiPorPessoaId(@PathVariable int idPessoa) {
+		return ResponseEntity.ok(new PaiDto(pessoaService.buscaPaiPessoaPorId(idPessoa)));
+	}
+
 	@GetMapping
 	public ResponseEntity<?> buscarPessoaPorId() {
 		return pessoaService.buscarTodasPessoa();

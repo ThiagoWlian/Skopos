@@ -39,8 +39,8 @@ public class QuestaoController {
 		return ResponseEntity.ok(new QuestaoDto().converteQuestaoModelParaQuestaoDto(questoesModel));
 	}
 	
-	@GetMapping("/listarQuestoesRespostas")
-	public ResponseEntity buscarQuestoesComRespostas() {
-		return questaoService.listaRespostasQuestoes();
+	@GetMapping("/listarQuestoesRespostas/{idEmpresa}")
+	public ResponseEntity buscarQuestoesComRespostas(@PathVariable int idEmpresa) {
+		return questaoService.listaRespostasQuestoes(idEmpresa);
 	}
 }
