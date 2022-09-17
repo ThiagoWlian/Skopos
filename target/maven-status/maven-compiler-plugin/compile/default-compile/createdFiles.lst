@@ -18,6 +18,7 @@ com\skopos\SkoposAPI\controller\RecomendacoesController.class
 com\skopos\SkoposAPI\dto\RecomendacaoDto.class
 com\skopos\SkoposAPI\controller\PessoaController.class
 com\skopos\SkoposAPI\AutenticacaoFilter.class
+com\skopos\SkoposAPI\dto\StravaPontosDto.class
 com\skopos\SkoposAPI\controller\OpcaoController.class
 com\skopos\SkoposAPI\model\PermissaoModel.class
 com\skopos\SkoposAPI\dto\LoginForm.class
@@ -45,6 +46,7 @@ com\skopos\SkoposAPI\ConfigureSpringSecutiry.class
 com\skopos\SkoposAPI\controller\service\AvaliacaoService.class
 com\skopos\SkoposAPI\dto\CadastroEmpresaDto.class
 com\skopos\SkoposAPI\dto\CadastroQuestaoForm.class
+com\skopos\SkoposAPI\dto\PaiDto.class
 com\skopos\SkoposAPI\model\EnderecoModel.class
 com\skopos\SkoposAPI\controller\PremioController.class
 com\skopos\SkoposAPI\dto\DadosOpcaoQuestaoDto.class

@@ -35,7 +35,6 @@ public class QuestaoController {
 	@GetMapping("/{idEmpresa}")
 	public ResponseEntity<List<QuestaoDto>> listaQuestoesAtivasPorEmpresa(@PathVariable int idEmpresa){
 		List<QuestaoModel> questoesModel = questaoService.buscaQuestoesAtivasPorEmpresaPorUsuario(idEmpresa);
-		
 		return ResponseEntity.ok(new QuestaoDto().converteQuestaoModelParaQuestaoDto(questoesModel));
 	}
 	
