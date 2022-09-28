@@ -16,6 +16,8 @@ public class EmpresaDto {
 	private String cnpj;
 	private String rua;
 	private int numero;
+	private String email;
+	private String telefone;
 	private String cidade;
 	private String estado;
 	private String pais;
@@ -30,6 +32,8 @@ public class EmpresaDto {
 		this.cidade = empresa.getEndereco().getCidade();
 		this.estado = empresa.getEndereco().getEstado();
 		this.pais = empresa.getEndereco().getPais();
+		this.telefone = empresa.getTelefone();
+		this.email = empresa.getEmail();
 	}
 
 	public UsuarioModel converterParaUsuario(){
@@ -91,7 +95,23 @@ public class EmpresaDto {
 	public void setPais(String pais) {
 		this.pais = pais;
 	}
-	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
 	public List<EmpresaDto> converteParaList(List<EmpresaModel> lista){
 		return lista.stream().map(EmpresaDto::new).collect(Collectors.toList());
 	}

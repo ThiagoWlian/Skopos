@@ -9,13 +9,18 @@ import com.skopos.SkoposAPI.model.QuestaoModel;
 public class CadastroOpcaoForm {
 	@NotBlank
 	private String nome;
+	private String imagemCaminho = "";
+
 	@NotBlank
-	private String imagemCaminho;
+	private String tipo;
+
 	@NotNull
 	private int idQuestao;
 	
 	public OpcaoModel converteParaOpcaoModel() {
-		return new OpcaoModel(nome, imagemCaminho);
+		OpcaoModel opcao = new OpcaoModel(nome, imagemCaminho);
+		opcao.setTipo(tipo);
+		return opcao;
 	}
 	
 	public QuestaoModel converteParaQuestao() {
@@ -44,5 +49,13 @@ public class CadastroOpcaoForm {
 
 	public void setIdQuestao(int idQuestao) {
 		this.idQuestao = idQuestao;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 }

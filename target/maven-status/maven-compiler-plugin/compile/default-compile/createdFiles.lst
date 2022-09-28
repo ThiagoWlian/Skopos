@@ -6,6 +6,7 @@ com\skopos\SkoposAPI\repository\PremioRepository.class
 com\skopos\SkoposAPI\controller\service\TokenService.class
 com\skopos\SkoposAPI\model\EmpresaModel.class
 com\skopos\SkoposAPI\repository\ExercicioRepository.class
+com\skopos\SkoposAPI\dto\PessoaOpcoesIndexDto.class
 com\skopos\SkoposAPI\dto\RespostasQuestoesDto.class
 com\skopos\SkoposAPI\SkoposApiApplication.class
 com\skopos\SkoposAPI\dto\CadastroQuestaoDto.class
@@ -17,6 +18,7 @@ com\skopos\SkoposAPI\repository\RecomendacoesRepository.class
 com\skopos\SkoposAPI\controller\RecomendacoesController.class
 com\skopos\SkoposAPI\dto\RecomendacaoDto.class
 com\skopos\SkoposAPI\controller\PessoaController.class
+com\skopos\SkoposAPI\dto\QuestaoOpcaoDto.class
 com\skopos\SkoposAPI\AutenticacaoFilter.class
 com\skopos\SkoposAPI\dto\StravaPontosDto.class
 com\skopos\SkoposAPI\controller\OpcaoController.class
@@ -28,6 +30,7 @@ com\skopos\SkoposAPI\repository\PermissaoRepository.class
 com\skopos\SkoposAPI\dto\CadastroOpcaoDto.class
 com\skopos\SkoposAPI\repository\ChavePixRepository.class
 com\skopos\SkoposAPI\repository\FeedbackRepository.class
+com\skopos\SkoposAPI\dto\PessoaOpcoesIndicePorcentagemDto.class
 com\skopos\SkoposAPI\controller\service\PermissaoService.class
 com\skopos\SkoposAPI\dto\CadastroEnderecoForm.class
 com\skopos\SkoposAPI\repository\EnderecoRepository.class
@@ -39,6 +42,7 @@ com\skopos\SkoposAPI\dto\PontosDto.class
 com\skopos\SkoposAPI\dto\OpcaoDto.class
 com\skopos\SkoposAPI\controller\service\ExercicioService.class
 com\skopos\SkoposAPI\controller\service\FeedbackService.class
+com\skopos\SkoposAPI\dto\PessoaAvaliacoesDto.class
 com\skopos\SkoposAPI\dto\PontosExercicioDto.class
 com\skopos\SkoposAPI\dto\CadastroPessoaCompletoForm.class
 com\skopos\SkoposAPI\repository\OpcaoRepository.class
@@ -55,6 +59,7 @@ com\skopos\SkoposAPI\controller\ChavePixController.class
 com\skopos\SkoposAPI\controller\FeedbackController.class
 com\skopos\SkoposAPI\controller\service\PessoaService.class
 com\skopos\SkoposAPI\dto\CadastroPessoaCompletoDto.class
+com\skopos\SkoposAPI\dto\exercicios\ExercicioRetorno.class
 com\skopos\SkoposAPI\repository\AvaliacaoRepository.class
 com\skopos\SkoposAPI\dto\FeedbackDto.class
 com\skopos\SkoposAPI\dto\CadastroUsuarioDto.class

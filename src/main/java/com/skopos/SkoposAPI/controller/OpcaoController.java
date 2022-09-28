@@ -22,13 +22,13 @@ public class OpcaoController {
 	OpcaoService opcaoService;
 	
 	@PostMapping("/cadastro")
-	public ResponseEntity<CadastroOpcaoDto> cadastraPessoa(@RequestBody @Valid CadastroOpcaoForm opcaoForm) {
+	public ResponseEntity<CadastroOpcaoDto> cadastraOpcao(@RequestBody @Valid CadastroOpcaoForm opcaoForm) {
 		opcaoService.cadastroOpcao(opcaoForm.converteParaOpcaoModel(), opcaoForm.converteParaQuestao().getID());
 		return ResponseEntity.created(null).body(new CadastroOpcaoDto(opcaoForm.converteParaOpcaoModel()));
 	}
 	
 	@PostMapping("/cadastroLista")
-	public ResponseEntity<List<CadastroOpcaoForm>> cadastraPessoa(@RequestBody @Valid List<CadastroOpcaoForm> opcaoFormList) {
+	public ResponseEntity<List<CadastroOpcaoForm>> cadastraOpcao(@RequestBody @Valid List<CadastroOpcaoForm> opcaoFormList) {
 		for(CadastroOpcaoForm opcaoForm : opcaoFormList) {
 			opcaoService.cadastroOpcao(opcaoForm.converteParaOpcaoModel(), opcaoForm.converteParaQuestao().getID());
 		}

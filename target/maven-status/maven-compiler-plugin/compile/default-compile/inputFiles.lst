@@ -2,6 +2,7 @@ C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\model\UsuarioMo
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\controller\service\PremioService.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\repository\OpcaoRepository.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\CadastroPremioForm.java
+C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\PessoaAvaliacoesDto.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\RecomendacaoDto.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\model\OpcaoModel.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\CadastroEmpresaDto.java
@@ -10,10 +11,12 @@ C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\controller\serv
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\DadosOpcaoQuestaoDto.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\CadastroPremioDto.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\PessoaDto.java
+C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\exercicios\ExercicioRetorno.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\FeedbackDto.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\OpcaoDto.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\model\PessoaModel.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\model\QuestaoModel.java
+C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\PessoaOpcoesIndicePorcentagemDto.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\repository\ChavePixRepository.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\CadastraChavePixForm.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\controller\service\TokenService.java
@@ -41,6 +44,7 @@ C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\repository\Empr
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\LoginForm.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\model\AvaliacaoModel.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\CadastroEnderecoDto.java
+C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\QuestaoOpcaoDto.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\model\RecomendacoesModel.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\repository\ExercicioRepository.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\repository\RecomendacoesRepository.java
@@ -67,6 +71,7 @@ C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\repository\Prem
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\exercicios\ExercicioDto.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\controller\RecomendacoesController.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\controller\service\ChavePixService.java
+C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\PessoaOpcoesIndexDto.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\dto\PontosDto.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\controller\PremioController.java
 C:\Users\thiag\Desktop\Skopos\src\main\java\com\skopos\SkoposAPI\controller\AvaliacaoController.java

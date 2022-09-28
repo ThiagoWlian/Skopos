@@ -1,5 +1,6 @@
 package com.skopos.SkoposAPI.controller.service;
 
+import com.skopos.SkoposAPI.dto.exercicios.ExercicioRetorno;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -109,7 +110,7 @@ public class ExercicioService {
 				}
 			}
 		}
-		return ResponseEntity.ok().build();
+		return ResponseEntity.ok(new ExercicioRetorno());
 	}
 	
 	private boolean verificaExercicioNaBase(long idExercicio) {

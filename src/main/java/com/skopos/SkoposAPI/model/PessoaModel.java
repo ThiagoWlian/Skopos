@@ -47,6 +47,8 @@ public class PessoaModel {
 	private List<ExercicioModel> exercicios;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
 	private List<RecomendacoesModel> recomendacoes;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
+	private List<AvaliacaoModel> avalicoes;
 	
 	public PessoaModel() {}
 	

@@ -21,6 +21,8 @@ public class OpcaoModel {
 	private String nome;
 	@Column(name = "IMAGEM_CAMINHO")
 	private String imagemCaminho;
+
+	private String tipo;
 	@ManyToOne
 	private QuestaoModel questao;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "opcao")
@@ -29,11 +31,10 @@ public class OpcaoModel {
     public OpcaoModel() {}
     
 	public OpcaoModel(String nome, String imagemCaminho) {
-		super();
 		this.nome = nome;
 		this.imagemCaminho = imagemCaminho;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -57,5 +58,21 @@ public class OpcaoModel {
 	}
 	public void setQuestao(QuestaoModel questao) {
 		this.questao = questao;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public List<AvaliacaoModel> getAvaliacao() {
+		return avaliacao;
+	}
+
+	public void setAvaliacao(List<AvaliacaoModel> avaliacao) {
+		this.avaliacao = avaliacao;
 	}
 }

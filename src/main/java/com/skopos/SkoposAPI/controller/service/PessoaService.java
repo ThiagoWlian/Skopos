@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import com.skopos.SkoposAPI.dto.PessoaOpcoesIndexDto;
+import com.skopos.SkoposAPI.dto.PessoaOpcoesIndicePorcentagemDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -102,5 +104,9 @@ public class PessoaService {
 	
 	public Long buscaPaiPessoaPorId(int id) {
 		return pessoaRepositoy.findPaiById(id);
+	}
+
+	public List<PessoaOpcoesIndicePorcentagemDto> buscarPessoaComIndiceOpcoes() {
+		return new PessoaOpcoesIndicePorcentagemDto().converter(pessoaRepositoy.findIndiceOpcoes());
 	}
 }

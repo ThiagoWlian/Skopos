@@ -70,5 +70,10 @@ public class PessoaController {
 	public ResponseEntity<?> buscarPessoaPorId() {
 		return pessoaService.buscarTodasPessoa();
 	}
+
+	@GetMapping("/indicePessoas")
+	public ResponseEntity<?> buscarIndiceRespostas() {
+		return ResponseEntity.ok(pessoaService.buscarPessoaComIndiceOpcoes());
+	}
 	
 }

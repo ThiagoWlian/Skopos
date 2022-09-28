@@ -18,13 +18,20 @@ public class AvaliacaoModel {
 	private QuestaoModel questao;
 	@ManyToOne
 	private OpcaoModel opcao;
+	@ManyToOne
+	private PessoaModel pessoa;
 
-	public AvaliacaoModel (QuestaoModel questao, OpcaoModel opcao) {
+	public AvaliacaoModel (QuestaoModel questao, OpcaoModel opcao, PessoaModel pessoa) {
 		this.questao = questao;
 		this.opcao = opcao;
+		this.pessoa = pessoa;
         data = Date.valueOf(LocalDate.now());
 	}
-	
+
+	public AvaliacaoModel() {
+
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -52,5 +59,13 @@ public class AvaliacaoModel {
 
 	public void setOpcao(OpcaoModel opcao) {
 		this.opcao = opcao;
+	}
+
+	public PessoaModel getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(PessoaModel pessoa) {
+		this.pessoa = pessoa;
 	}
 }
