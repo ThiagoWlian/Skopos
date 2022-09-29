@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import com.skopos.SkoposAPI.model.PremioModel;
 
 public class PremiosDto {
+	private int id;
 	private String nome;
 	private String descricao;
 	private String imagemCaminho;
@@ -15,6 +16,7 @@ public class PremiosDto {
 	private float valor;
 	
 	public PremiosDto(PremioModel premio) {
+		this.id = premio.getId();
 		this.nome = premio.getNome();
 		this.descricao = premio.getDescricao();
 		this.imagemCaminho = premio.getImagemCaminho();

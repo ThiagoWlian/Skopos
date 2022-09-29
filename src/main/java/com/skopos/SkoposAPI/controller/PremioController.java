@@ -30,7 +30,7 @@ public class PremioController {
 	
 	@PostMapping
 	public ResponseEntity<CadastroPremioDto> cadastraPremio(@RequestBody @Valid CadastroPremioForm premioForm) {
-		premioService.cadastroPremio(premioForm.converteParaPremioModel(), premioForm.getId());
+		premioService.cadastroPremio(premioForm.converteParaPremioModel(), premioForm.getId());// o id é da empresa
 		return ResponseEntity.created(null).body(new CadastroPremioDto(premioForm));
 	}
 	
