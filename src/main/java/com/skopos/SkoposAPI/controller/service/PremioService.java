@@ -42,10 +42,11 @@ public class PremioService {
 		if(premio.get().getQuantidadeDisponivel() > 0 && premio.get().getValor() < pessoa.get().getPontos()) {
 			premio.get().setPessoas(pessoa.get());
 			pessoa.get().setPontos((long)(pessoa.get().getPontos() - premio.get().getValor()));
+			premio.get().setQuantidadeDisponivel(premio.get().getQuantidadeDisponivel()-1);
 			premioRepository.save(premio.get());
-			return ResponseEntity.ok().body("Prêmio enviado com sucesso!");
+			return ResponseEntity.ok().body(null);
 		}
-		return ResponseEntity.status(406).body("Não existem pontos suficientes!");
+		return ResponseEntity.status(406).body(null);
 	}
 	
 	public List<PremioModel> listaTodosOsPremios() {
