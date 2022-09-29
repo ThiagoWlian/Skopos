@@ -28,15 +28,12 @@ public class CadastroPessoaCompletoForm {
 	private String cpf;
 	@NotNull
 	private String email;
-	@NotNull
 	private String cargo;
 	@NotNull
 	private String telefone;
-	@NotBlank
 	private String area;
 	@NotBlank
 	private String nomeUsuario;
-	@NotBlank
 	private String senha;
 	@NotBlank
 	private String permissao;
@@ -50,7 +47,6 @@ public class CadastroPessoaCompletoForm {
 	private String estado;
 	@NotBlank
 	private String pais;
-	@NotBlank
 	private String pix;
 
 	private int pontosResposta;
