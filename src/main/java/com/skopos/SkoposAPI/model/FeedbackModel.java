@@ -16,6 +16,9 @@ public class FeedbackModel {
 	@ManyToOne
 	private EmpresaModel empresa;
 
+	@ManyToOne
+	private PessoaModel pessoa;
+
 	public int getId() {
 		return id;
 	}
@@ -30,6 +33,14 @@ public class FeedbackModel {
 
 	public void setFeedback(String feedback) {
 		this.feedback = feedback;
+	}
+
+	public PessoaModel getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(PessoaModel pessoa) {
+		this.pessoa = pessoa;
 	}
 
 	public EmpresaModel getEmpresa() {

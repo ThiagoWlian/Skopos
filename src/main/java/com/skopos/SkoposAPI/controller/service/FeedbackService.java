@@ -3,6 +3,8 @@ package com.skopos.SkoposAPI.controller.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.skopos.SkoposAPI.model.PessoaModel;
+import com.skopos.SkoposAPI.repository.PessoaRepositoy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -21,11 +23,16 @@ public class FeedbackService {
 	
 	@Autowired
 	EmpresaRepository empresaRepository;
+
+	@Autowired
+	PessoaRepositoy pessoaRepositoy;
 	
-	public ResponseEntity<?> criaFeedback(FeedbackModel feedback, int idEmpresa){
+	public ResponseEntity<?> criaFeedback(FeedbackModel feedback, int idEmpresa, int idPessoa){
 		Optional<EmpresaModel> empresa = empresaRepository.findById(idEmpresa);
+		Optional<PessoaModel> pessoa = pessoaRepositoy.findById(idPessoa);
 		if(empresa.isPresent()) {
 			feedback.setEmpresa(empresa.get());
+			feedback.setPessoa(pessoa.get());
 			feedbackRepository.save(feedback);
 			return ResponseEntity.created(null).build();
 		}

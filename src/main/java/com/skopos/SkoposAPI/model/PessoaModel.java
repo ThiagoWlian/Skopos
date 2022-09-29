@@ -52,6 +52,8 @@ public class PessoaModel {
 	private List<RecomendacoesModel> recomendacoes;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
 	private List<AvaliacaoModel> avalicoes;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
+	private List<FeedbackModel> feedback;
 	
 	public PessoaModel() {}
 	
@@ -182,6 +184,8 @@ public class PessoaModel {
 	public int getPai() {
 		return pai;
 	}
+
+
 
 	public int getPontosRespostas() {
 		return pontosRespostas;

@@ -26,7 +26,7 @@ public class FeedbackController {
 	public ResponseEntity<?> enviarFeedback(@RequestBody @Valid FeedbackDto feedbackDto){
 		FeedbackModel feedback = new FeedbackModel();
 		feedback.setFeedback(feedbackDto.getFeedback());
-		return feedbackService.criaFeedback(feedback,feedbackDto.getIdEmpresa());
+		return feedbackService.criaFeedback(feedback,feedbackDto.getIdEmpresa(), feedbackDto.getIdPessoa());
 	}
 	
 	@GetMapping

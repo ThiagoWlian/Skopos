@@ -13,12 +13,16 @@ public class FeedbackDto {
 	private String feedback;
 	@NotNull
 	private int idEmpresa;
+
+	@NotNull
+	private int idPessoa;
 	
 	public FeedbackDto() {}
 	
 	public FeedbackDto(FeedbackModel feedback) {
 		this.feedback = feedback.getFeedback();
-		this.idEmpresa = feedback.getId();
+		this.idEmpresa = feedback.getEmpresa().getId();
+		this.idPessoa = feedback.getPessoa().getId();
 	}
 
 	public String getFeedback() {
@@ -36,7 +40,15 @@ public class FeedbackDto {
 	public void setIdEmpresa(int idEmpresa) {
 		this.idEmpresa = idEmpresa;
 	}
-	
+
+	public int getIdPessoa() {
+		return idPessoa;
+	}
+
+	public void setIdPessoa(int idPessoa) {
+		this.idPessoa = idPessoa;
+	}
+
 	public List<FeedbackDto> converteListaFeedbackModel(List<FeedbackModel> lista) {
 		return lista.stream().map(FeedbackDto::new).collect(Collectors.toList());
 	}
