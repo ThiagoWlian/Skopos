@@ -68,7 +68,15 @@ public class PremiosDto {
 	public void setQuantidadeDisponivel(int quantidadeDisponivel) {
 		this.quantidadeDisponivel = quantidadeDisponivel;
 	}
-	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public List<PremiosDto> converter(List<PremioModel> listaPremios){
 		return listaPremios.stream().map(PremiosDto::new).collect(Collectors.toList());
 	}
