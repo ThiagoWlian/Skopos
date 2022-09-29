@@ -23,6 +23,9 @@ import com.skopos.SkoposAPI.repository.QuestaoRepository;
 public class AvaliacaoService {
 	@Autowired
 	AvaliacaoRepository avaliacaoRepository;
+
+	@Autowired
+	PessoaService pessoaService;
 	
 	@Autowired
 	QuestaoRepository questaoRepository;
@@ -39,7 +42,9 @@ public class AvaliacaoService {
 		Optional<PessoaModel> pessoa = pessoaRepositoy.findById(idPessoa);
 		
 		if(opcao.isPresent() && questao.isPresent() && pessoa.isPresent()) {
+			pessoaService.aumentaNumeroDePontos(idPessoa);
 			avaliacaoRepository.save(new AvaliacaoModel(questao.get(), opcao.get(), pessoa.get()));
+
 			return ResponseEntity.created(null).build();
 		}
 		return ResponseEntity.badRequest().build();

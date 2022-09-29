@@ -92,6 +92,15 @@ public class PessoaService {
 		}
 		return pessoa;
 	}
+
+	public Optional<PessoaModel> aumentaNumeroDePontos(int id) {
+		Optional<PessoaModel> pessoa = pessoaRepositoy.findById(id);
+		if(pessoa.isPresent()) {
+			pessoa.get().aumentarNumeroDePontos(pessoa.get().getPontosRespostas());
+			pessoaRepositoy.save(pessoa.get());
+		}
+		return pessoa;
+	}
 	
 	public Optional<PessoaModel> aumentaNumeroPAI(int id, int numeroPontos) {
 		Optional<PessoaModel> pessoa = pessoaRepositoy.findById(id);
@@ -109,4 +118,13 @@ public class PessoaService {
 	public List<PessoaOpcoesIndicePorcentagemDto> buscarPessoaComIndiceOpcoes() {
 		return new PessoaOpcoesIndicePorcentagemDto().converter(pessoaRepositoy.findIndiceOpcoes());
 	}
+
+	public void atualizarPontosPorRespota(int idPessoa, int pontos) {
+		Optional<PessoaModel> pessoa = pessoaRepositoy.findById(idPessoa);
+		if(pessoa.isPresent()) {
+			pessoa.get().setPontosRespostas(pontos);
+			pessoaRepositoy.save(pessoa.get());
+		}
+	}
+
 }

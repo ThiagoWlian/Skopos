@@ -1,5 +1,6 @@
 package com.skopos.SkoposAPI.controller;
 
+import com.skopos.SkoposAPI.controller.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

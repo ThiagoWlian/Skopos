@@ -60,7 +60,7 @@ public class ExercicioLivreDto implements ExercicioDto{
 	}
 	
 	public ExercicioModel converteParaModel() throws ParseException {
-		return new ExercicioModel(id, sport_type, distance, moving_time, start_date_local);
+		return new ExercicioModel(id, sport_type, Double.valueOf(distance), Double.valueOf(moving_time), start_date_local);
 	}
 
 	@Override

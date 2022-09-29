@@ -52,6 +52,8 @@ public class CadastroPessoaCompletoForm {
 	private String pais;
 	@NotBlank
 	private String pix;
+
+	private int pontosResposta;
 	@NotNull
 	private int id;
 
@@ -60,7 +62,7 @@ public class CadastroPessoaCompletoForm {
 	}
 	
 	public PessoaModel converterParaPessoa(){
-		return new PessoaModel(this.nomePessoa, this.sobrenome, this.nascimento, this.cargo, this.email, this.telefone, this.rg, this.cpf, this.area);
+		return new PessoaModel(this.nomePessoa, this.sobrenome, this.nascimento, this.cargo, this.email, this.telefone, this.rg, this.cpf, this.area, this.pontosResposta);
 	}
 	
 	public EnderecoModel converterParaEndereco(){
@@ -233,5 +235,13 @@ public class CadastroPessoaCompletoForm {
 
 	public void setPix(String pix) {
 		this.pix = pix;
+	}
+
+	public int getPontosResposta() {
+		return pontosResposta;
+	}
+
+	public void setPontosResposta(int pontosResposta) {
+		this.pontosResposta = pontosResposta;
 	}
 }

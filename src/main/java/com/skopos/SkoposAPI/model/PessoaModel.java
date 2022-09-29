@@ -35,6 +35,9 @@ public class PessoaModel {
 	private EnderecoModel endereco;
 	@Column(name = "pontos_respostas")
 	private long pontos;
+
+	@Column(name = "pontos_por_respostas")
+	private int pontosRespostas;
 	@OneToOne
 	private UsuarioModel usuario;
 	@ManyToOne
@@ -56,16 +59,17 @@ public class PessoaModel {
 		this.id = id;
 	}
 	
-	public PessoaModel(String nome, String sobrenome, Date nascimento, String cargo, String email, String telefone, String rg, String cpf, String area) {
+	public PessoaModel(String nome, String sobrenome, Date nascimento, String cargo, String email, String telefone, String rg, String cpf, String area, int pontosResposta) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.nascimento = nascimento;
 		this.cargo = cargo;
 		this.email = email;
-		this.telefone = email;
+		this.telefone = telefone;
 		this.cpf = cpf;
 		this.rg = rg;
 		this.area = area;
+		this.pontosRespostas = pontosResposta < 1 ? 1 : pontosResposta;
 	}
 		
 	public String getArea() {
@@ -178,6 +182,16 @@ public class PessoaModel {
 	public int getPai() {
 		return pai;
 	}
+
+	public int getPontosRespostas() {
+		return pontosRespostas;
+	}
+
+	public void setPontosRespostas(int pontosRespostas) {
+		this.pontosRespostas = pontosRespostas;
+	}
+
+
 
 	public void setPai(int pai) {
 		this.pai = pai;

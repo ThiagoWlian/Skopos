@@ -75,5 +75,15 @@ public class PessoaController {
 	public ResponseEntity<?> buscarIndiceRespostas() {
 		return ResponseEntity.ok(pessoaService.buscarPessoaComIndiceOpcoes());
 	}
+	@PutMapping("/pontosResposta/{idPessoa}/{pontosResposta}")
+	public ResponseEntity<?> mudarPontosPorResposta(@PathVariable int idPessoa, @PathVariable int pontosResposta) {
+		try{
+			pessoaService.atualizarPontosPorRespota(idPessoa,pontosResposta);
+			return ResponseEntity.ok(null);
+		}
+		catch (Exception ex) {
+			return ResponseEntity.internalServerError().body(ex);
+		}
+	}
 	
 }

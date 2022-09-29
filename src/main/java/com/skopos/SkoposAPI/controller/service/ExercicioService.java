@@ -48,26 +48,6 @@ public class ExercicioService {
 		return distancia;
 	}
 	
-	public ExercicioLivreDto getMediaExerciciosPorPessoPorData(int idPessoa, Date dataLimite) {
-		double mediaDistancia = 0;
-		double mediaTempo = 0;
-		int countPessoas = 0;
-		List<ExercicioModel> exercicios = exercicioRepository.getMediaAllByPessoaId(idPessoa);
-		for(ExercicioModel exer : exercicios) {
-			if(exer.getStart_date_local().before(dataLimite)) {
-				mediaDistancia = Double.valueOf(exer.getDistance());
-				mediaTempo = Double.valueOf(exer.getMoving_time());
-				countPessoas++;
-			}
-		}
-		
-		ExercicioLivreDto exercicioDto = new ExercicioLivreDto();
-		exercicioDto.setDistance(String.valueOf(mediaDistancia/countPessoas));
-		exercicioDto.setMoving_time(String.valueOf(mediaTempo/countPessoas));
-		
-		return exercicioDto;
-	}
-	
 	private List<ExercicioLivreDto> getListExerciciosByUserStrava(String acessToken) {
 		RestTemplate restTemplate = new RestTemplate();
 		String uri = "https://www.strava.com/api/v3/athlete/activities?access_token="+acessToken;
@@ -110,9 +90,15 @@ public class ExercicioService {
 				}
 			}
 		}
-		return ResponseEntity.ok(new ExercicioRetorno());
+		ExercicioRetorno exercicioRetorno = mediaExercicio(idPessoa);
+		exercicioRetorno.setPontos(String.valueOf(this.getPontosExercicio(acessToken)));
+		return ResponseEntity.ok(exercicioRetorno);
 	}
-	
+
+	public ExercicioRetorno mediaExercicio(int idPessoa) {
+		return exercicioRepository.getMediaAllByPessoaId(idPessoa);
+	}
+
 	private boolean verificaExercicioNaBase(long idExercicio) {
 		Optional<ExercicioModel> exercicio = exercicioRepository.findById(idExercicio);
 		if(exercicio.isEmpty()) {

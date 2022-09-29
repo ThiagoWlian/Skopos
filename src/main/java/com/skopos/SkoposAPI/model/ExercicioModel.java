@@ -15,8 +15,8 @@ public class ExercicioModel {
 	@Id
 	private long id;
 	private String sport_type;
-	private String distance;
-	private String moving_time;
+	private double distance;
+	private double moving_time;
 	private Date start_date_local;
 	
 	@ManyToOne
@@ -24,7 +24,7 @@ public class ExercicioModel {
 	
 	public ExercicioModel() {}
 	
-	public ExercicioModel(long id, String sport_type, String distance, String moving_time, String start_date_local) throws ParseException {
+	public ExercicioModel(long id, String sport_type, double distance, double moving_time, String start_date_local) throws ParseException {
 		this.id = id;
 		this.sport_type = sport_type;
 		this.distance = distance;
@@ -34,7 +34,7 @@ public class ExercicioModel {
 		this.start_date_local = new java.sql.Date(date.getTime()); 
 	}
 	
-	public ExercicioModel(String sport_type, String distance, String moving_time, String start_date_local) throws ParseException {
+	public ExercicioModel(String sport_type, double distance, double moving_time, String start_date_local) throws ParseException {
 		this.sport_type = sport_type;
 		this.distance = distance;
 		this.moving_time = moving_time;
@@ -55,16 +55,16 @@ public class ExercicioModel {
 	public void setSport_type(String sport_type) {
 		this.sport_type = sport_type;
 	}
-	public String getDistance() {
+	public double getDistance() {
 		return distance;
 	}
-	public void setDistance(String distance) {
+	public void setDistance(double distance) {
 		this.distance = distance;
 	}
-	public String getMoving_time() {
+	public double getMoving_time() {
 		return moving_time;
 	}
-	public void setMoving_time(String moving_time) {
+	public void setMoving_time(double moving_time) {
 		this.moving_time = moving_time;
 	}
 	public Date getStart_date_local() {
