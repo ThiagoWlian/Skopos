@@ -43,7 +43,7 @@ public class PessoaDto {
 		this.cidade = pessoa.getEndereco().getCidade();
 		this.estado = pessoa.getEndereco().getEstado();
 		this.pais = pessoa.getEndereco().getPais();
-		this.id = pessoa.getEmpresa().getId();
+		this.id = pessoa.getId();
 		this.area = pessoa.getArea();
 	}
 	public PessoaDto() {}
