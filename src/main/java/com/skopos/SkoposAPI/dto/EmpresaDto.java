@@ -21,6 +21,8 @@ public class EmpresaDto {
 	private String cidade;
 	private String estado;
 	private String pais;
+
+	private int idEmpresa;
 	
 	public EmpresaDto() {}
 	
@@ -34,6 +36,7 @@ public class EmpresaDto {
 		this.pais = empresa.getEndereco().getPais();
 		this.telefone = empresa.getTelefone();
 		this.email = empresa.getEmail();
+		this.idEmpresa = empresa.getId();
 	}
 
 	public UsuarioModel converterParaUsuario(){
@@ -42,6 +45,14 @@ public class EmpresaDto {
 
 	public String getNome() {
 		return nome;
+	}
+
+	public int getIdEmpresa() {
+		return idEmpresa;
+	}
+
+	public void setIdEmpresa(int idEmpresa) {
+		this.idEmpresa = idEmpresa;
 	}
 
 	public void setNome(String nome) {

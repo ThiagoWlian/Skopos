@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import com.skopos.SkoposAPI.repository.PessoaRepositoy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -28,6 +29,10 @@ public class PremioService {
 	
 	@Autowired
 	PessoaService pessoaService;
+
+	@Autowired
+	PessoaRepositoy pessoaRepositoy;
+
 	
 	public void cadastroPremio(PremioModel premioModel, int id) {
 		EmpresaModel empresaModel = empresaRepository.findById(id).get();
@@ -40,10 +45,12 @@ public class PremioService {
 		Optional<PremioModel> premio = premioRepository.findById(idPremio);
 		Optional<PessoaModel> pessoa = pessoaService.buscarPessoaPorId(idPessoa);
 		if(premio.get().getQuantidadeDisponivel() > 0 && premio.get().getValor() < pessoa.get().getPontos()) {
-			premio.get().setPessoas(pessoa.get());
-			pessoa.get().setPontos((long)(pessoa.get().getPontos() - premio.get().getValor()));
-			premio.get().setQuantidadeDisponivel(premio.get().getQuantidadeDisponivel()-1);
-			premioRepository.save(premio.get());
+			PremioModel premioModel = premio.get();
+			PessoaModel pessoaModel = pessoa.get();
+			pessoaModel.addPremio(premioModel);
+			pessoaModel.setPontos((long)(pessoaModel.getPontos() - premioModel.getValor()));
+			premioModel.setQuantidadeDisponivel(premio.get().getQuantidadeDisponivel()-1);
+			pessoaRepositoy.save(pessoaModel);
 			return ResponseEntity.ok().body(null);
 		}
 		return ResponseEntity.status(406).body(null);

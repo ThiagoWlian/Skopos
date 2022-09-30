@@ -54,8 +54,6 @@ public class QuestaoService {
 				listRespostas.add(respostasDto);
 			}
 		}
-		
 		return ResponseEntity.ok(listRespostas);
-		
 	}
 }

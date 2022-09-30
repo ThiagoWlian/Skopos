@@ -94,6 +94,10 @@ public class PessoaModel {
 		return pontos;
 	}
 
+	public void addPremio(PremioModel premio) {
+		this.premios.add(premio);
+	}
+
 	public void setPontos(long pontos) {
 		this.pontos = pontos;
 	}
