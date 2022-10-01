@@ -55,7 +55,7 @@ public class QuestaoDto {
 			QuestaoDto questaoDto = new QuestaoDto(questaoModel.getID(), questaoModel.getQuestao());
 			List<OpcaoDto> opcoesDtoLista = new ArrayList<OpcaoDto>();
 			for (OpcaoModel opcao : questaoModel.getOpcao()) {
-				opcoesDtoLista.add(new OpcaoDto(opcao.getId(), opcao.getNome(), opcao.getImagemCaminho()));
+				opcoesDtoLista.add(new OpcaoDto(opcao.getId(), opcao.getNome(), opcao.getImagemCaminho(),opcao.getTipo()));
 			}
 			questaoDto.setOpcoes(opcoesDtoLista);
 			questoesDto.add(questaoDto);

@@ -4,11 +4,21 @@ public class OpcaoDto {
 	private int idOpcao;
 	private String Opcao;
 	private String imagem;
+	private String tipo;
 	
-	public OpcaoDto(int idOpcao, String opcao, String imagem) {
+	public OpcaoDto(int idOpcao, String opcao, String imagem, String tipo) {
 		this.idOpcao = idOpcao;
 		Opcao = opcao;
 		this.imagem = imagem;
+		this.tipo = tipo;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	public int getIdOpcao() {
