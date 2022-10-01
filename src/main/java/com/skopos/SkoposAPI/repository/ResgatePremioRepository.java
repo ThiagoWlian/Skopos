@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface ResgatePremioRepository extends JpaRepository<ResgatePremioModel, Integer> {
 
-    @Query("SELECT new com.skopos.SkoposAPI.dto.PremioListaDto(p.id, p.nome, p.descricao, p.imagemCaminho, rp.status) FROM ResgatePremioModel rp " +
+    @Query("SELECT new com.skopos.SkoposAPI.dto.PremioListaDto(p.id, p.nome, p.descricao, p.imagemCaminho, rp.status, rp.pessoa.id) FROM ResgatePremioModel rp " +
             "JOIN PremioModel p ON p.id = rp.premio.id WHERE p.empresa.id = ?1 AND rp.status = 'Resgatado'")
     public List<PremioListaDto> findPremiosParaEnviar(int idEmpresa);
 
