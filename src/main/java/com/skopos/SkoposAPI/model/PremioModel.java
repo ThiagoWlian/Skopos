@@ -2,16 +2,7 @@ package com.skopos.SkoposAPI.model;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "PREMIO")
@@ -37,13 +28,9 @@ public class PremioModel {
 	
 	@ManyToOne
 	private EmpresaModel empresa;
-	
-	@ManyToMany
-	@JoinTable(name = "RESGATE_PREMIO",
-	joinColumns = @JoinColumn(name = "PREMIO_ID"),
-	inverseJoinColumns = @JoinColumn(name = "PESSOA_ID")
-	)
-	private List<PessoaModel> pessoas;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "premio")
+	private List<ResgatePremioModel> resgatePremioModels;
 	
 	public PremioModel() {}
 	
@@ -93,14 +80,6 @@ public class PremioModel {
 	
 	public void setQuantidadeDisponivel(int quantidadeDisponivel) {
 		this.quantidadeDisponivel = quantidadeDisponivel;
-	}
-	
-	public List<PessoaModel> getPessoas() {
-		return pessoas;
-	}
-	
-	public void setPessoas(PessoaModel pessoa) {
-		pessoas.add(pessoa);
 	}
 	
 	public EmpresaModel getEmpresa() {

@@ -34,7 +34,13 @@ public class QuestaoController {
 	
 	@GetMapping("/{idEmpresa}")
 	public ResponseEntity<List<QuestaoDto>> listaQuestoesAtivasPorEmpresa(@PathVariable int idEmpresa){
-		List<QuestaoModel> questoesModel = questaoService.buscaQuestoesAtivasPorEmpresaPorUsuario(idEmpresa);
+		List<QuestaoModel> questoesModel = questaoService.buscaQuestoesAtivasPorEmpresa(idEmpresa);
+		return ResponseEntity.ok(new QuestaoDto().converteQuestaoModelParaQuestaoDto(questoesModel));
+	}
+
+	@GetMapping("/{idEmpresa}/{idPessoa}")
+	public ResponseEntity<List<QuestaoDto>> listaQuestoesAtivasPorEmpresaPorPessoa(@PathVariable int idEmpresa, @PathVariable int idPessoa){
+		List<QuestaoModel> questoesModel = questaoService.buscaQuestoesAtivasPorEmpresaPorUsuario(idEmpresa,idPessoa);
 		return ResponseEntity.ok(new QuestaoDto().converteQuestaoModelParaQuestaoDto(questoesModel));
 	}
 	

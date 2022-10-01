@@ -44,8 +44,6 @@ public class PessoaModel {
 	private EmpresaModel empresa;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
 	private List<ChavePixModel> chaves;
-	@ManyToMany(mappedBy = "pessoas")
-	private List<PremioModel> premios;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
 	private List<ExercicioModel> exercicios;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
@@ -54,6 +52,8 @@ public class PessoaModel {
 	private List<AvaliacaoModel> avalicoes;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
 	private List<FeedbackModel> feedback;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
+	private List<ResgatePremioModel> pessoResgatePremioModels;
 	
 	public PessoaModel() {}
 	
@@ -94,9 +94,6 @@ public class PessoaModel {
 		return pontos;
 	}
 
-	public void addPremio(PremioModel premio) {
-		this.premios.add(premio);
-	}
 
 	public void setPontos(long pontos) {
 		this.pontos = pontos;

@@ -5,14 +5,10 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.skopos.SkoposAPI.dto.PremioListaDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.skopos.SkoposAPI.controller.service.PremioService;
 import com.skopos.SkoposAPI.dto.CadastroPremioDto;
@@ -57,5 +53,19 @@ public class PremioController {
 		}
 		return ResponseEntity.ok(new PremiosDto().converter(listaPremios));
 	}
-	
+
+	@GetMapping("/buscarPremiosUsuario/{idPessoa}")
+	public ResponseEntity<List<PremioListaDto>> buscarPremiosParaUsuario(@PathVariable int idPessoa) {
+		return ResponseEntity.ok(premioService.listarPremiosDoUsuario(idPessoa));
+	}
+
+	@GetMapping("/buscarPremiosEnvio/{idEmpresa}")
+	public ResponseEntity<List<PremioListaDto>> buscarPremiosParaEnvio(@PathVariable int idEmpresa) {
+		return ResponseEntity.ok(premioService.listarPremiosParaEnviar(idEmpresa));
+	}
+
+	@PutMapping("/atualizarStatus/{idPremio}")
+	public ResponseEntity<?> atualizarStatus(@PathVariable int idPremio) {
+		return premioService.atualizarStatuPremio(idPremio);
+	}
 }

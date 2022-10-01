@@ -39,8 +39,11 @@ public class QuestaoService {
 		return questao;
 	}
 	
-	public List<QuestaoModel> buscaQuestoesAtivasPorEmpresaPorUsuario(int idEmpresa) {
+	public List<QuestaoModel> buscaQuestoesAtivasPorEmpresa(int idEmpresa) {
 		return questaoRepository.findByEmpresaStatus(idEmpresa, Date.valueOf(LocalDate.now()));
+	}
+	public List<QuestaoModel> buscaQuestoesAtivasPorEmpresaPorUsuario(int idEmpresa, int idPessoa) {
+		return questaoRepository.findByEmpresaStatusAndPessoa(idEmpresa, Date.valueOf(LocalDate.now()), idPessoa);
 	}
 	
 	public ResponseEntity<List<RespostasQuestoesDto>> listaRespostasQuestoes(int empresaId){

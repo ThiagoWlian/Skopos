@@ -1,3 +1,4 @@
+/home/thiago/IdeaProjects/Skopos/src/main/java/com/skopos/SkoposAPI/model/ResgatePremioModel.java
 /home/thiago/IdeaProjects/Skopos/src/main/java/com/skopos/SkoposAPI/repository/QuestaoRepository.java
 /home/thiago/IdeaProjects/Skopos/src/main/java/com/skopos/SkoposAPI/dto/LoginForm.java
 /home/thiago/IdeaProjects/Skopos/src/main/java/com/skopos/SkoposAPI/repository/OpcaoRepository.java
@@ -39,6 +40,7 @@
 /home/thiago/IdeaProjects/Skopos/src/main/java/com/skopos/SkoposAPI/dto/CadastroPessoaCompletoDto.java
 /home/thiago/IdeaProjects/Skopos/src/main/java/com/skopos/SkoposAPI/dto/CadastraChavePixForm.java
 /home/thiago/IdeaProjects/Skopos/src/main/java/com/skopos/SkoposAPI/repository/AvaliacaoRepository.java
+/home/thiago/IdeaProjects/Skopos/src/main/java/com/skopos/SkoposAPI/repository/ResgatePremioRepository.java
 /home/thiago/IdeaProjects/Skopos/src/main/java/com/skopos/SkoposAPI/model/EmpresaModel.java
 /home/thiago/IdeaProjects/Skopos/src/main/java/com/skopos/SkoposAPI/dto/exercicios/ExercicioLivreDto.java
 /home/thiago/IdeaProjects/Skopos/src/main/java/com/skopos/SkoposAPI/controller/service/QuestaoService.java
@@ -90,4 +92,5 @@
 /home/thiago/IdeaProjects/Skopos/src/main/java/com/skopos/SkoposAPI/controller/service/PermissaoService.java
 /home/thiago/IdeaProjects/Skopos/src/main/java/com/skopos/SkoposAPI/dto/CadastroPessoaCompletoForm.java
 /home/thiago/IdeaProjects/Skopos/src/main/java/com/skopos/SkoposAPI/ConfigureSpringSecutiry.java
+/home/thiago/IdeaProjects/Skopos/src/main/java/com/skopos/SkoposAPI/dto/PremioListaDto.java
 /home/thiago/IdeaProjects/Skopos/src/main/java/com/skopos/SkoposAPI/controller/service/EmpresaService.java
