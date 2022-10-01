@@ -81,7 +81,7 @@ public class PremioService {
 
 	public ResponseEntity<?> atualizarStatuPremio(int idPremio) {
 		List<ResgatePremioModel> resgatePremioModel = resgatePremioRepository.findFirstByPremioId(idPremio);
-		if(resgatePremioModel.isEmpty()) {
+		if(resgatePremioModel != null && resgatePremioModel.size() > 0) {
 			resgatePremioModel.get(0).setStatus("Enviado");
 			resgatePremioRepository.save(resgatePremioModel.get(0));
 			return ResponseEntity.ok().build();
