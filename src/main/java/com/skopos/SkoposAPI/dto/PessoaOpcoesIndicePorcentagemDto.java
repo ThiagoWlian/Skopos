@@ -11,6 +11,7 @@ public class PessoaOpcoesIndicePorcentagemDto {
     private String regular;
     private String bom;
     private String otimo;
+    private String empresa;
 
 
     public PessoaOpcoesIndicePorcentagemDto() {}
@@ -21,6 +22,7 @@ public class PessoaOpcoesIndicePorcentagemDto {
         this.regular = String.format("%.0f", ((double)dto.getRegular()/dto.getTotal())*100) + "%";
         this.bom = String.format("%.0f", ((double)dto.getBom()/dto.getTotal())*100) + "%";
         this.otimo = String.format("%.0f", ((double)dto.getOtimo()/dto.getTotal())*100) + "%";
+        this.empresa = dto.getEmpresa();
     }
 
     public int getId() {
@@ -37,6 +39,14 @@ public class PessoaOpcoesIndicePorcentagemDto {
 
     public void setPessimo(String pessimo) {
         this.pessimo = pessimo;
+    }
+
+    public String getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(String empresa) {
+        this.empresa = empresa;
     }
 
     public String getRuim() {

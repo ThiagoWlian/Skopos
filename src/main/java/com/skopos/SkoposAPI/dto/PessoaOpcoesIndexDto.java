@@ -7,14 +7,16 @@ public class PessoaOpcoesIndexDto {
     private long regular;
     private long bom;
     private long otimo;
+    private String empresa;
 
-    public PessoaOpcoesIndexDto(int id, long pessimo, long ruim, long regular, long bom, long otimo) {
+    public PessoaOpcoesIndexDto(int id, long pessimo, long ruim, long regular, long bom, long otimo, String empresa) {
         this.id = id;
         this.pessimo = pessimo;
         this.ruim = ruim;
         this.regular = regular;
         this.bom = bom;
         this.otimo = otimo;
+        this.empresa = empresa;
     }
 
     public int getId() {
@@ -27,6 +29,14 @@ public class PessoaOpcoesIndexDto {
 
     public long getPessimo() {
         return pessimo;
+    }
+
+    public String getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(String empresa) {
+        this.empresa = empresa;
     }
 
     public void setPessimo(long pessimo) {
