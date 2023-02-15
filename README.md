@@ -9,13 +9,13 @@
 ● Tratamento de dados<br>
 ● Sistema de recomendações<br>
 ● Geração de relatórios (mínimo 2)<br>
-● Questionário gameficado<br><br>
+● Questionário gameficado<br>
 ● Cadastro de prêmios<br>
 ● Cadastro de empresas<br>
 ● Customização da regra de negócio dos pontos<br>
-● Cadastro de funcionários
-● Cadastro de questões
-● Gerenciamento do cadastro de funcionários
-● Gerenciamento do cadastro empresas
-● Gerenciamento do cadastro de questões
-● Gerenciamento do cadastro de prêmios
+● Cadastro de funcionários<br>
+● Cadastro de questões<br>
+● Gerenciamento do cadastro de funcionários<br>
+● Gerenciamento do cadastro empresas<br>
+● Gerenciamento do cadastro de questões<br>
+● Gerenciamento do cadastro de prêmios<br>
