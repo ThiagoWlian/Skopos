@@ -1,6 +1,8 @@
 <h1>Tecnologias</h1>
 <p>Java, Spring, Spring Boot, Spring Security, Spring Validation, Spring Data Jpa, MySQL e Docker</p>
 
+<p>Estava sendo utilizando um banco de dados MySQL no serviço Amazon RDS</p>
+
 <h1>Proposta</h1>
 <p>Diversas empresas possuem problemas com a performance de seus
 funcionários, estas baixas no nível de desempenho estão ligadas muitas vezes a
